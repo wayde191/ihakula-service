@@ -1,2 +1,3 @@
 development:
   platform: ihakula
+  log_path: /tmp/ihakula_service.log

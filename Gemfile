@@ -24,3 +24,12 @@ gem 'pry'
 gem 'rb-readline'
 gem 'bson_ext', '~>1.12'
 gem 'whenever'
+gem 'perfect-random-number-generator'
+
+# Mysql
+gem 'grape-activerecord'
+gem 'activerecord', '~>4.2.3'
+gem 'mysql2'
+
+# JPush
+gem 'jpush', '~>3.2.1'

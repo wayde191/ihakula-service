@@ -17,6 +17,8 @@ use Rack::Static,
     :urls => %w(/images /lib /css),
     :root => 'public'
 
+use TransactionLogger
+
 run Rack::Cascade.new [IHakula::Application,
                        lambda { |env|
                          [200,
