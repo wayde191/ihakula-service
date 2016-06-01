@@ -3,6 +3,8 @@ require 'grape-swagger'
 
 require_relative '../../app/api/status_codes'
 require_relative '../../app/stores/factories/user_store_factory'
+require_relative '../../app/api/validators/not_empty'
+require_relative '../../app/exceptions/ihakula_service_error'
 
 include StatusCodes
 
@@ -12,7 +14,6 @@ module IHakula
 
       MALFORMED_REQUEST_DESCRIPTION = 'Malformed Request'
       SERVER_ERROR = 'Server Error'
-      ACCOUNT_OWNER_NOT_FOUND = 'Account owner not found'
       OK_MESSAGE = 'Ok'
 
       helpers do
@@ -21,19 +22,24 @@ module IHakula
         end
       end
 
-      desc 'Operations on User'
+      desc 'Operations on iHakula User'
       resource :user do
 
-        desc 'Returns all accounts', is_array: true
+        desc 'Get all user contacts', is_array: true
         params do
-          optional :active_only, type:Boolean, default: false, desc: 'Return only active accounts (default: false)'
+          requires :user_id, type: String, not_empty: true, desc: 'User Id'
         end
-        get '/', http_codes: [
+        get '/get-contact', http_codes: [
                    [OK, OK_MESSAGE],
                    [MALFORMED_REQUEST, MALFORMED_REQUEST_DESCRIPTION],
                    [FAILURE, SERVER_ERROR]
                ] do
-          'hello world'
+          begin
+            user_store.get_contact(:user_id)
+          rescue IhakulaServiceError => ex
+            status FAILURE
+            {error:SERVER_ERROR, message:ex.message}
+          end
         end
       end
     end
