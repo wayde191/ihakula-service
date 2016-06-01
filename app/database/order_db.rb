@@ -24,7 +24,6 @@ class Ih_users < ActiveRecord::Base
   self.table_name = 'ih_users'
 end
 
-
 # Account
 class Ih_account_group < ActiveRecord::Base
   self.table_name = 'ih_account_group'
