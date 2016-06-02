@@ -3,9 +3,7 @@ require 'mysql2'
 
 #Connetction
 class UserDatabaseConnection < ActiveRecord::Base
-  def self.abstract_class?
-    true # So it gets its own connection
-  end
+  self.abstract_class = true
 end
 
 UserDatabaseConnection.establish_connection(

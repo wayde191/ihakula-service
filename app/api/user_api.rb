@@ -6,6 +6,8 @@ require_relative '../../app/stores/factories/user_store_factory'
 require_relative '../../app/api/validators/not_empty'
 require_relative '../../app/exceptions/ihakula_service_error'
 
+require_relative '../../app/api/models/contact'
+
 include StatusCodes
 
 module IHakula
@@ -41,6 +43,25 @@ module IHakula
             {error:SERVER_ERROR, message:ex.message}
           end
         end
+
+        desc 'Manage user contacts', is_array: false
+        params do
+          requires :all, except: [:id, :default, :date], using: Models::Contact.documentation
+        end
+        post '/create-contact', http_codes: [
+                              [OK, OK_MESSAGE],
+                              [MALFORMED_REQUEST, MALFORMED_REQUEST_DESCRIPTION],
+                              [FAILURE, SERVER_ERROR]
+                          ] do
+          begin
+            user_store.create_contact(params)
+          rescue IhakulaServiceError => ex
+            status FAILURE
+            {error:SERVER_ERROR, message:ex.message}
+          end
+        end
+
+
       end
     end
   end
