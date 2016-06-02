@@ -2,6 +2,11 @@ require 'grape'
 require 'grape-swagger'
 
 require_relative '../../app/stores/factories/order_store_factory'
+require_relative '../../app/api/status_codes'
+require_relative '../../app/api/validators/not_empty'
+require_relative '../../app/exceptions/ihakula_service_error'
+
+require_relative '../../app/api/models/order'
 
 include StatusCodes
 
@@ -20,7 +25,7 @@ module IHakula
         end
       end
 
-      desc 'Operations on Accounts'
+      desc 'Operations on Order'
       resource :order do
 
         desc 'Returns all accounts', is_array: true
