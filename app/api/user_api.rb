@@ -44,7 +44,7 @@ module IHakula
           end
         end
 
-        desc 'Manage user contacts', is_array: false
+        desc 'Create user contacts', is_array: false
         params do
           requires :all, except: [:id, :default, :date], using: Models::Contact.documentation
         end
@@ -55,6 +55,24 @@ module IHakula
                           ] do
           begin
             user_store.create_contact(params)
+          rescue IhakulaServiceError => ex
+            status FAILURE
+            {error:SERVER_ERROR, message:ex.message}
+          end
+        end
+
+        desc 'Update user contacts', is_array: false
+        params do
+          requires :all, except: [:date], using: Models::Contact.documentation
+        end
+        put '/update-contact', http_codes: [
+                                  [OK, OK_MESSAGE],
+                                  [MALFORMED_REQUEST, MALFORMED_REQUEST_DESCRIPTION],
+                                  [FAILURE, SERVER_ERROR]
+                              ] do
+          begin
+            user_store.update_contact(params)
+            status UPDATED
           rescue IhakulaServiceError => ex
             status FAILURE
             {error:SERVER_ERROR, message:ex.message}

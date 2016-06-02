@@ -32,6 +32,24 @@ class UserStore
     end
   end
 
+  def update_contact(parameters)
+    begin
+      contact = Ih_contact.find_by(id: parameters[:id])
+      if contact.nil? then
+        raise IhakulaServiceError, 'Contact not exist.'
+      else
+        contact[:name] = parameters[:name]
+        contact[:phone] = parameters[:phone]
+        contact[:address] = parameters[:address]
+        contact[:default] = parameters[:default]
+        contact[:date] = get_current_time
+        contact.save
+      end
+    rescue StandardError => ex
+      raise IhakulaServiceError, ex.message
+    end
+  end
+
   private
   def get_current_time
     Time.now.strftime('%Y-%m-%d %H:%M:%S')
