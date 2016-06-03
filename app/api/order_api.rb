@@ -65,6 +65,28 @@ module IHakula
           end
         end
 
+        desc 'Accept order', is_array: false
+        params do
+          requires :all, except: [:user_id, :cart, :sale_price, :real_price, :state,
+                                  :start_date, :confirm_date,
+                                  :delivery_date, :pay_date,
+                                  :end_date, :cancel_date,
+                                  :deleted_date], using: Models::Order.documentation
+        end
+        put '/accept-order', http_codes: [
+                                 [OK, OK_MESSAGE],
+                                 [MALFORMED_REQUEST, MALFORMED_REQUEST_DESCRIPTION],
+                                 [FAILURE, SERVER_ERROR]
+                             ] do
+          begin
+            order_store.accept_order(params)
+            status UPDATED
+          rescue IhakulaServiceError => ex
+            status FAILURE
+            {error:SERVER_ERROR, message:ex.message}
+          end
+        end
+
       end
     end
   end

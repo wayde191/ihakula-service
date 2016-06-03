@@ -34,7 +34,7 @@ class UserStore
 
   def update_contact(parameters)
     begin
-      contact = Ih_contact.find_by(id: parameters[:id])
+      contact = Ih_contact.find_by(id: parameters[:id], user_id: parameters[:user_id])
       if contact.nil? then
         raise IhakulaServiceError, 'Contact not exist.'
       else
