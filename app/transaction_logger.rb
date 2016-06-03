@@ -8,7 +8,7 @@ class TransactionLogger
     Thread.current[:transaction_id] = SecureRandom::uuid
     @app = app
     settings = SettingsLoader::load_settings('./config.yml')
-    @logger = LogWrapper.new(OpenStruct.new({log_pathlog_path: settings['log_path']}), LogFormatter.new)
+    @logger = LogWrapper.new(OpenStruct.new({log_path: settings['log_path']}), LogFormatter.new)
   end
 
   def call(env)
