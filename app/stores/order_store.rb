@@ -85,6 +85,59 @@ class OrderStore
     end
   end
 
+  def pay_for_order(parameters)
+    begin
+      order = Ih_order.find_by(id: parameters[:id], order_number: parameters[:order_number])
+      if order.nil? then
+        raise IhakulaServiceError, 'Order not exist.'
+      elsif order[:state].equal? ORDER_PAID
+        raise IhakulaServiceError, 'Order paid already.'
+      else
+        order[:state] = ORDER_PAID
+        order[:pay_date] = get_current_time
+        order.save
+      end
+    rescue StandardError => ex
+      raise IhakulaServiceError, ex.message
+    end
+  end
+
+  def done_order(parameters)
+    begin
+      order = Ih_order.find_by(id: parameters[:id], order_number: parameters[:order_number])
+      if order.nil? then
+        raise IhakulaServiceError, 'Order not exist.'
+      elsif order[:state].equal? ORDER_FINISHED
+        raise IhakulaServiceError, 'Order done already.'
+      else
+        order[:state] = ORDER_FINISHED
+        order[:end_date] = get_current_time
+        order.save
+      end
+    rescue StandardError => ex
+      raise IhakulaServiceError, ex.message
+    end
+  end
+
+  def cancel_order(parameters)
+    begin
+      order = Ih_order.find_by(id: parameters[:id], order_number: parameters[:order_number])
+      if order.nil? then
+        raise IhakulaServiceError, 'Order not exist.'
+      elsif order[:state].equal? ORDER_CANCELLED
+        raise IhakulaServiceError, 'Order cancelled already.'
+      elsif order[:state] > ORDER_DELIVERED
+        raise IhakulaServiceError, 'Order is in delivering, cannot cancel at this time.'
+      else
+        order[:state] = ORDER_CANCELLED
+        order[:cancel_date] = get_current_time
+        order.save
+      end
+    rescue StandardError => ex
+      raise IhakulaServiceError, ex.message
+    end
+  end
+
   private
 
   def get_order_number_by_id(order_id)
