@@ -37,7 +37,7 @@ module IHakula
                    [FAILURE, SERVER_ERROR]
                ] do
           begin
-            user_store.get_contact(:user_id)
+            user_store.get_contact(params[:user_id])
           rescue IhakulaServiceError => ex
             status FAILURE
             {error:SERVER_ERROR, message:ex.message}

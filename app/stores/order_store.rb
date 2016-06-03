@@ -37,31 +37,19 @@ class OrderStore
       )
 
     rescue StandardError => ex
-      write_exception_details_to_log(ex, 'get_goods', 'paras')
+      write_exception_details_to_log(ex, 'create_order', 'paras')
       raise IhakulaServiceError, ex.message
     end
   end
 
-  # def get_user(user_id)
-  #   Ih_users.find(user_id)
-  # end
-  #
-  # def get_order_detail(parameters)
-  #   begin
-  #     order = Ih_nh_order.where(ID: parameters[:order_id], user_id: parameters[:user_id])
-  #
-  #     orders_hash = Hash.new
-  #     orders_hash['code'] = '0'
-  #     orders_hash['order'] = order
-  #     orders_hash['customer'] = get_user(parameters[:user_id])
-  #     orders_hash['customer_contact'] = Ih_nh_contact.find_by(user_id: parameters[:user_id])
-  #
-  #     orders_hash
-  #   rescue StandardError => ex
-  #     write_exception_details_to_log(ex, 'get_order_detail', 'paras')
-  #     raise IhakulaServiceError
-  #   end
-  # end
+  def get_user_orders(user_id)
+    begin
+      Ih_order.where(user_id: user_id)
+    rescue StandardError => ex
+      write_exception_details_to_log(ex, 'get_user_orders', 'paras')
+      raise IhakulaServiceError, ex.message
+    end
+  end
   #
   # def all_in_progress_orders
   #   begin
