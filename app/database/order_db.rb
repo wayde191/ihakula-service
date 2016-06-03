@@ -15,7 +15,7 @@ OrderDatabaseConnection.establish_connection(
 )
 
 #Model
-class Ih_account_field < OrderDatabaseConnection
-  self.table_name = 'ih_account_field'
+class Ih_order < OrderDatabaseConnection
+  self.table_name = 'ih_order'
   self.inheritance_column = :_type_disabled
 end

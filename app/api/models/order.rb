@@ -16,6 +16,12 @@ module IHakula
                       desc: 'The order id'
                   }
 
+        expose :order_number, documentation: {
+                      type: String,
+                      not_empty: true,
+                      desc: 'The order id'
+                  }
+
         expose :user_id, documentation: {
                            type: String,
                            not_empty: true,

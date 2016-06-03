@@ -16,7 +16,6 @@ module IHakula
 
       MALFORMED_REQUEST_DESCRIPTION = 'Malformed Request'
       SERVER_ERROR = 'Server Error'
-      ACCOUNT_OWNER_NOT_FOUND = 'Account owner not found'
       OK_MESSAGE = 'Ok'
 
       helpers do
@@ -28,17 +27,27 @@ module IHakula
       desc 'Operations on Order'
       resource :order do
 
-        desc 'Returns all accounts', is_array: true
+        desc 'Create order', is_array: false
         params do
-          optional :active_only, type:Boolean, default: false, desc: 'Return only active accounts (default: false)'
+          requires :all, except: [:id, :order_number, :state,
+                                  :start_date, :confirm_date,
+                                  :delivery_date, :pay_date,
+                                  :end_date, :cancel_date,
+                                  :deleted_date], using: Models::Order.documentation
         end
-        get '/', http_codes: [
-                   [OK, OK_MESSAGE],
-                   [MALFORMED_REQUEST, MALFORMED_REQUEST_DESCRIPTION],
-                   [FAILURE, SERVER_ERROR]
-               ] do
-          'hello world'
+        post '/create-contact', http_codes: [
+                                  [OK, OK_MESSAGE],
+                                  [MALFORMED_REQUEST, MALFORMED_REQUEST_DESCRIPTION],
+                                  [FAILURE, SERVER_ERROR]
+                              ] do
+          begin
+            order_store.create_order(params)
+          rescue IhakulaServiceError => ex
+            status FAILURE
+            {error:SERVER_ERROR, message:ex.message}
+          end
         end
+
       end
     end
   end
