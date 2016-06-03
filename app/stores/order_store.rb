@@ -68,6 +68,23 @@ class OrderStore
     end
   end
 
+  def delivery_order(parameters)
+    begin
+      order = Ih_order.find_by(id: parameters[:id], order_number: parameters[:order_number])
+      if order.nil? then
+        raise IhakulaServiceError, 'Order not exist.'
+      elsif order[:state].equal? ORDER_DELIVERED
+        raise IhakulaServiceError, 'Order delivered already.'
+      else
+        order[:state] = ORDER_DELIVERED
+        order[:delivery_date] = get_current_time
+        order.save
+      end
+    rescue StandardError => ex
+      raise IhakulaServiceError, ex.message
+    end
+  end
+
   private
 
   def get_order_number_by_id(order_id)
