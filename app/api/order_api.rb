@@ -176,6 +176,40 @@ module IHakula
           end
         end
 
+        desc 'Get under going orders', is_array: true
+        params do
+          requires :user_id, type: String, not_empty: true, desc: 'User Id'
+        end
+        get '/get-user-under-going-orders', http_codes: [
+                                  [OK, OK_MESSAGE],
+                                  [MALFORMED_REQUEST, MALFORMED_REQUEST_DESCRIPTION],
+                                  [FAILURE, SERVER_ERROR]
+                              ] do
+          begin
+            order_store.get_under_going_orders(params[:user_id])
+          rescue IhakulaServiceError => ex
+            status FAILURE
+            {error:SERVER_ERROR, message:ex.message}
+          end
+        end
+
+        desc 'Get closed orders', is_array: true
+        params do
+          requires :user_id, type: String, not_empty: true, desc: 'User Id'
+        end
+        get '/get-user-closed-orders', http_codes: [
+                                  [OK, OK_MESSAGE],
+                                  [MALFORMED_REQUEST, MALFORMED_REQUEST_DESCRIPTION],
+                                  [FAILURE, SERVER_ERROR]
+                              ] do
+          begin
+            order_store.get_closed_orders(params[:user_id])
+          rescue IhakulaServiceError => ex
+            status FAILURE
+            {error:SERVER_ERROR, message:ex.message}
+          end
+        end
+
       end
     end
   end

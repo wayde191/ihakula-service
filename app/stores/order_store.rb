@@ -51,6 +51,24 @@ class OrderStore
     end
   end
 
+  def get_under_going_orders(user_id)
+    begin
+      Ih_order.where(user_id: user_id)
+          .where.not(state: [ORDER_FINISHED, ORDER_CANCELLED, ORDER_REMOVED])
+          .order('start_date DESC')
+    rescue StandardError => ex
+      raise IhakulaServiceError, ex.message
+    end
+  end
+
+  def get_closed_orders(user_id)
+    begin
+      Ih_order.where(user_id: user_id, state: [ORDER_FINISHED, ORDER_CANCELLED, ORDER_REMOVED]).order('start_date DESC')
+    rescue StandardError => ex
+      raise IhakulaServiceError, ex.message
+    end
+  end
+
   def accept_order(parameters)
     begin
       order = Ih_order.find_by(id: parameters[:id], order_number: parameters[:order_number])
