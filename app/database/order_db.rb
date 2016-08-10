@@ -11,7 +11,7 @@ OrderDatabaseConnection.establish_connection(
     host:     'localhost',
     database: 'ihakula_tea',
     username: 'root',
-    password: 'Wayde191!'
+    password: 'Hakula567'
 )
 
 #Model

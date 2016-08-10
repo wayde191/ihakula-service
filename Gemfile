@@ -30,7 +30,7 @@ gem 'perfect-random-number-generator'
 # Mysql
 gem 'grape-activerecord'
 gem 'activerecord', '~>4.2.3'
-gem 'mysql2'
+gem 'mysql2', '0.2.6'
 
 # JPush
 gem 'jpush', '~>3.2.1'

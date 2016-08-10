@@ -11,7 +11,7 @@ UserDatabaseConnection.establish_connection(
     host:     'localhost',
     database: 'ihakula_sso',
     username: 'root',
-    password: 'Wayde191!'
+    password: 'Hakula567'
 )
 
 #Model

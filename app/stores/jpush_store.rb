@@ -1,4 +1,4 @@
-require 'JPush'
+require 'jpush'
 
 require_relative '../../app/api/status_codes'
 require_relative '../../app/exceptions/ihakula_service_error'
