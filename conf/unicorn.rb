@@ -23,8 +23,6 @@ before_exec do |server|
 end
 
 before_fork do |server, worker|
-  defined?(ActiveRecord::Base) and
-      ActiveRecord::Base.connection.disconnect!
 
   # zero downtime deploy magic:
   # if unicorn is already running, ask it to start a new process and quit.
