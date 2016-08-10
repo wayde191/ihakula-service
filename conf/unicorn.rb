@@ -1,5 +1,5 @@
 # config/unicorn.rb
-deploy_to = '/home/ihakula-service/NorthernHemisphere'
+deploy_to = '/home/NorthernHemisphere/ihakula-service/conf'
 pid_file = "#{deploy_to}/shared/pids/unicorn.pid"
 socket_file= "#{deploy_to}/shared/unicorn.sock"
 log_file = "#{deploy_to}/shared/log/unicorn.log"
