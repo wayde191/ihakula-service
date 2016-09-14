@@ -16,6 +16,9 @@ module IHakula
       SERVER_ERROR = 'Server Error'
       OK_MESSAGE = 'Ok'
 
+      format :json
+      content_type :json, 'application/json; charset=utf-8'
+
       helpers do
         def joke_store
           JokeStoreFactory::create(settings)
