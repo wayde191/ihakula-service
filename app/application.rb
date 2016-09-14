@@ -8,6 +8,8 @@ require_relative '../app/api/status_codes'
 require_relative '../app/api/accounts_api'
 require_relative '../app/api/order_api'
 require_relative '../app/api/user_api'
+require_relative '../app/api/fund_api'
+require_relative '../app/api/joke_api'
 
 module IHakula
   class Application < Grape::API
@@ -26,6 +28,7 @@ module IHakula
     mount IHakula::API::OrderAPI
     mount IHakula::API::UserAPI
     mount IHakula::API::FundAPI
+    mount IHakula::API::JokeAPI
 
     add_swagger_documentation hide_format: true, hide_documentation_path: true
   end
