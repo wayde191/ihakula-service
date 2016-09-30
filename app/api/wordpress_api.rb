@@ -2,7 +2,7 @@ require 'grape'
 require 'grape-swagger'
 
 require_relative '../../app/api/status_codes'
-require_relative '../../app/stores/factories/joke_store_factory'
+require_relative '../../app/stores/factories/wordpress_store_factory'
 require_relative '../../app/api/validators/not_empty'
 require_relative '../../app/exceptions/ihakula_service_error'
 
@@ -10,7 +10,7 @@ include StatusCodes
 
 module IHakula
   module API
-    class JokeAPI < Grape::API
+    class WordpressAPI < Grape::API
 
       MALFORMED_REQUEST_DESCRIPTION = 'Malformed Request'
       SERVER_ERROR = 'Server Error'
@@ -20,47 +20,59 @@ module IHakula
       content_type :json, 'application/json; charset=utf-8'
 
       helpers do
-        def joke_store
-          JokeStoreFactory::create(settings)
+        def wordpress_store
+          WordpressStoreFactory::create(settings)
         end
       end
 
-      desc 'Operations on iHakula Joke'
-      resource :joke do
+      desc 'Operations on iHakula wordpress'
+      resource :wordpress do
 
-        desc 'Get pagination jokes', is_array: true
+        desc 'Get post by category filter', is_array: true
         params do
-          requires :page_num, type: String, not_empty: true, desc: 'Page number'
+          requires :category, type: String, not_empty: true, desc: 'Post filter category'
+          requires :filter, type: String, not_empty: true, desc: 'Post filter'
         end
-        get '/get-joke', http_codes: [
+        get '/get-post', http_codes: [
                               [OK, OK_MESSAGE],
                               [MALFORMED_REQUEST, MALFORMED_REQUEST_DESCRIPTION],
                               [FAILURE, SERVER_ERROR]
                           ] do
           begin
-            joke_store.get_joke(params[:page_num])
+            wordpress_store.get_posts(params[:category], params[:filter])
           rescue IhakulaServiceError => ex
             status FAILURE
             {error:SERVER_ERROR, message:ex.message}
           end
         end
 
-        desc 'Get AD for Mobile', is_array: true
+        desc 'Get users', is_array: true
         params do
         end
-        get '/ad', http_codes: [
+        get '/get-users', http_codes: [
                            [OK, OK_MESSAGE],
                            [MALFORMED_REQUEST, MALFORMED_REQUEST_DESCRIPTION],
                            [FAILURE, SERVER_ERROR]
                        ] do
           begin
-            {
-                _code: '0',
-                _data: {
-                    pic: 'http://7xnvyh.dl1.z0.glb.clouddn.com/Airdoc_Splash.jpg',
-                    url: 'http://www.ihakula.com'
-                }
-            }
+            wordpress_store.get_users()
+          rescue IhakulaServiceError => ex
+            status FAILURE
+            {error:SERVER_ERROR, message:ex.message}
+          end
+        end
+
+        desc 'Get user', is_array: false
+        params do
+          requires :id, type: String, not_empty: true, desc: 'Post user id'
+        end
+        get '/get-user', http_codes: [
+                           [OK, OK_MESSAGE],
+                           [MALFORMED_REQUEST, MALFORMED_REQUEST_DESCRIPTION],
+                           [FAILURE, SERVER_ERROR]
+                       ] do
+          begin
+            wordpress_store.get_user(params[:id])
           rescue IhakulaServiceError => ex
             status FAILURE
             {error:SERVER_ERROR, message:ex.message}
