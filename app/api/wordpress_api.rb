@@ -48,7 +48,7 @@ module IHakula
 
         desc 'Get post comment by post id', is_array: true
         params do
-          requires :id, type: String, not_empty: true, desc: 'Post id'
+          requires :post_id, type: String, not_empty: true, desc: 'Post id'
         end
         get '/get-comment', http_codes: [
                            [OK, OK_MESSAGE],
@@ -56,7 +56,7 @@ module IHakula
                            [FAILURE, SERVER_ERROR]
                        ] do
           begin
-            wordpress_store.get_comments(params[:id])
+            wordpress_store.get_comments(params[:post_id])
           rescue IhakulaServiceError => ex
             status FAILURE
             {error:SERVER_ERROR, message:ex.message}
