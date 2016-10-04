@@ -38,7 +38,10 @@ class WordpressStore
   def get_post_count
     begin
       response = @http_client.get("#{@settings.no1_service}/posts?page=1&per_page=1")
-      {total: response.headers[:x_wp_total]}
+      {
+          total: response.headers[:x_wp_total],
+          page: 10
+      }
     end
   rescue StandardError => ex
     write_exception_details_to_log(ex, 'get_post_count', 'paras')
@@ -66,7 +69,10 @@ class WordpressStore
   def get_comment_count(post_id)
     begin
       response = @http_client.get("#{@settings.no1_service}/comments?page=1&per_page=1&post=#{post_id}")
-      {total: response.headers[:x_wp_total]}
+      {
+          total: response.headers[:x_wp_total],
+          page: 10
+      }
     end
   rescue StandardError => ex
     write_exception_details_to_log(ex, 'get_post_count', 'paras')
