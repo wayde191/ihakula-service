@@ -35,6 +35,16 @@ class WordpressStore
     raise IhakulaServiceError, ex.message
   end
 
+  def get_post_count
+    begin
+      response = @http_client.get("#{@settings.no1_service}/posts?page=1&per_page=1")
+      {total: response.headers[:x_wp_total]}
+    end
+  rescue StandardError => ex
+    write_exception_details_to_log(ex, 'get_post_count', 'paras')
+    raise IhakulaServiceError, ex.message
+  end
+
   def get_posts_by_page(page)
     begin
       @http_client.get("#{@settings.no1_service}/posts?page=#{page}").body
@@ -50,6 +60,16 @@ class WordpressStore
     end
   rescue StandardError => ex
     write_exception_details_to_log(ex, 'get_comments', 'paras')
+    raise IhakulaServiceError, ex.message
+  end
+
+  def get_comment_count(post_id)
+    begin
+      response = @http_client.get("#{@settings.no1_service}/comments?page=1&per_page=1&post=#{post_id}")
+      {total: response.headers[:x_wp_total]}
+    end
+  rescue StandardError => ex
+    write_exception_details_to_log(ex, 'get_post_count', 'paras')
     raise IhakulaServiceError, ex.message
   end
 

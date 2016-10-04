@@ -90,6 +90,7 @@ class HTTPClient
 
     begin
       parsed_response.body = JSON.parse(response.body, symbolize_names: true)
+      parsed_response.headers = response.headers
     rescue => ex
       parsed_response.body = response.body
     end
