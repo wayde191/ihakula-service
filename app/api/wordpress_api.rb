@@ -79,6 +79,23 @@ module IHakula
           end
         end
 
+        desc 'Get post by id', is_array: true
+        params do
+          requires :id, type: String, not_empty: true, desc: 'Post id'
+        end
+        get '/get-post-by-id', http_codes: [
+                                   [OK, OK_MESSAGE],
+                                   [MALFORMED_REQUEST, MALFORMED_REQUEST_DESCRIPTION],
+                                   [FAILURE, SERVER_ERROR]
+                               ] do
+          begin
+            wordpress_store.get_posts_by_id(params[:id])
+          rescue IhakulaServiceError => ex
+            status FAILURE
+            {error:SERVER_ERROR, message:ex.message}
+          end
+        end
+
         desc 'Get post comment by post id', is_array: true
         params do
           requires :post_id, type: String, not_empty: true, desc: 'Post id'

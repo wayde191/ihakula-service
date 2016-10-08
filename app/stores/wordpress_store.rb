@@ -57,6 +57,15 @@ class WordpressStore
     raise IhakulaServiceError, ex.message
   end
 
+  def get_posts_by_id(id)
+    begin
+      @http_client.get("#{@settings.no1_service}/posts/#{id}").body
+    end
+  rescue StandardError => ex
+    write_exception_details_to_log(ex, 'get_posts_by_id', 'paras')
+    raise IhakulaServiceError, ex.message
+  end
+
   def get_comments(id)
     begin
       @http_client.get("#{@settings.no1_service}/comments?post=#{id}").body
