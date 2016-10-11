@@ -12,7 +12,7 @@ class ToolStore
   def get_validated_neighbours
     begin
       result = []
-      CSV.foreach('uploads/neighbour.csv') do |user|
+      CSV.foreach('uploads/neighbour.csv', 'r:UTF-8') do |user|
         result.push user
       end
       result
