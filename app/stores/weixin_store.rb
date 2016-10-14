@@ -45,11 +45,14 @@ class WeixinStore
   end
 
   def show_guide_service_list
-    @message = "呃...不大明白，或者您的问题真的难倒我了，
-                要不您换个问法再试试，或许小滨就能明白了！
+    @message = "呃...不大明白，要不您换个问法再试试，或许小滨就能明白了！
                 您也可以输入序号使用以下服务：\n
-                [0]关于《滨湖壹号公众号》
-                [1]当前最新消息
+                [0]关于
+                [1]最新小区消息
+                [2]交房倒计时
+                [3]延期赔偿计算器
+                [4]钟律师联系方式
+                [5]售楼部联系方式
                 [?]使用说明\n"
     @message = @message.gsub(/ /, '')
     get_response_xml_message_by_type('text')
@@ -59,10 +62,18 @@ class WeixinStore
     command_hash = get_command_hash
 
     case command_hash[:key]
-      when 'BH' || '0'
+      when 'BH' || 0 || '0' || 'bh'
         show_welcome_message
-      when '1' #当前文章列表
-        show_guide_service_list
+      when '1'
+        show_latest_message
+      when '2'
+        show_delay_message
+      when '3'
+        show_delay_calculator
+      when '4'
+        show_lawyer_info
+      when '5'
+        show_no1_info
       when '?' #使用说明
         show_guide_service_list
       else
@@ -186,7 +197,7 @@ class WeixinStore
         title: '滨湖社区',
         description: '滨湖社区微信公众号，为您收集周边生活所有信息，记录幸福小区生活每一天。',
         pic_url: 'http://www.ihakula.com:9000/no1/wp-content/uploads/2016/10/binhu_300_200.png',
-        url: 'http://www.ihakula.com:9000/no1/2016/10/14/%E6%BB%A8%E6%B9%96%E5%A3%B9%E5%8F%B7%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7/'
+        url: 'http://www.ihakula.com/bing.html#/page/detail/217'
     }
   end
 
@@ -195,7 +206,70 @@ class WeixinStore
   end
 
   def msg_type_subscribe # Subscribe Event
-      show_welcome_message
+    show_guide_service_list
   end
 
+  def get_post_json(post)
+    {
+        title: post['title']['rendered'],
+        description: post['excerpt']['rendered'],
+        pic_url: "http://www.ihakula.com/img/profile-pics/#{post['tags'][0]}.jpg",
+        url: "http://www.ihakula.com/bing.html#/page/detail/#{post['id']}"
+    }
+  end
+
+  def show_latest_message
+    url = 'http://localhost:9395/wordpress/get-post-by-page?page=1'
+    body_json = JSON.parse(@http_client.get(url).body.to_json)
+
+    @article_items_arr = []
+    body_json.each do |post|
+      @article_items_arr.push(get_post_json(post))
+    end
+
+    get_response_xml_message_by_type('article')
+  end
+
+  def show_delay_message
+    url = 'http://localhost:9395/wordpress/get-post?category=tag&filter=delay'
+    body_json = JSON.parse(@http_client.get(url).body.to_json)
+
+    @article_items_arr = []
+    body_json.each do |post|
+      @article_items_arr.push(get_post_json(post))
+    end
+
+    get_response_xml_message_by_type('article')
+  end
+
+  def show_delay_calculator
+    @article_items_arr = [{
+                              title: '延期交房计算器',
+                              description: '延期交房计算器，根据延期天数和赔付比例计算出因得赔偿款，并和默认比例对比。',
+                              pic_url: 'http://www.ihakula.com:9000/no1/wp-content/uploads/2016/10/calculator_300_200.png',
+                              url: 'http://www.ihakula.com/bing.html#/page/calculator'
+                          }]
+    get_response_xml_message_by_type('article')
+  end
+
+  def show_lawyer_info
+    @article_items_arr = [{
+                              title: '钟律师联系方式',
+                              description: '钟律师详细联系方式',
+                              pic_url: 'http://www.ihakula.com/img/profile-pics/118.jpg',
+                              url: 'http://www.ihakula.com/bing.html#/page/detail/210'
+                          }]
+    get_response_xml_message_by_type('article')
+  end
+
+  def show_no1_info
+    @message = "售楼部电话：59711111\n
+市民热线：12345\n
+江夏区信访局：87952522\n
+江夏区城管局：87918876\n
+东湖开发区城管局：87985308\n
+市城管服务热线：82712345\n"
+    @message = @message.gsub(/ /, '')
+    get_response_xml_message_by_type('text')
+  end
 end
