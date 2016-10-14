@@ -11,6 +11,7 @@ include StatusCodes
 module IHakula
   module API
     class WeixinAPI < Grape::API
+      use Rack::Session::Cookie, :secret => 'ihakula_nh_secret'
 
       MALFORMED_REQUEST_DESCRIPTION = 'Malformed Request'
       SERVER_ERROR = 'Server Error'
@@ -20,8 +21,12 @@ module IHakula
       content_type :json, 'application/json; charset=utf-8'
 
       helpers do
+        def session
+          env[Rack::Session::Abstract::ENV_SESSION_KEY]
+        end
+
         def weixin_store
-          WeixinStoreFactory::create(settings)
+          WeixinStoreFactory::create(session, settings)
         end
       end
 
@@ -30,14 +35,16 @@ module IHakula
 
         desc 'Get validated neighbours', is_array: true
         params do
+          requires :ihakula_request, type: String, not_empty: true, desc: 'iHakula key'
+          requires :request_xml, type: String, not_empty: true, desc: 'request data'
         end
-        get '/get-validated-neighbours', http_codes: [
+        post '/event/center', http_codes: [
                            [OK, OK_MESSAGE],
                            [MALFORMED_REQUEST, MALFORMED_REQUEST_DESCRIPTION],
                            [FAILURE, SERVER_ERROR]
                        ] do
           begin
-            weixin_store.get_validated_neighbours()
+            weixin_store.event_handler(params)
           rescue IhakulaServiceError => ex
             status FAILURE
             {error:SERVER_ERROR, message:ex.message}
