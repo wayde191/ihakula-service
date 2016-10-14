@@ -213,7 +213,7 @@ class WeixinStore
     {
         title: post['title']['rendered'],
         description: post['excerpt']['rendered'],
-        pic_url: "http://www.ihakula.com/img/profile-pics/#{post['tags'][0]}.jpg",
+        pic_url: "http://www.ihakula.com/img/profile-pics/#{100 + post['tags'][0]}.jpg",
         url: "http://www.ihakula.com/bing.html#/page/detail/#{post['id']}"
     }
   end
