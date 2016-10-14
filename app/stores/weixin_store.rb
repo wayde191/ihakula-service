@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'json'
 
 require_relative '../../app/exceptions/ihakula_service_error'
@@ -25,7 +26,7 @@ class WeixinStore
 
   def validate_request
     unless request_come_from_ihakula
-      redirect '/'
+      redirect 'http://www.ihakula.com'
     end
   end
 
@@ -37,34 +38,49 @@ class WeixinStore
     type = @request_json['xml']['MsgType']
     case type
       when 'event'
-        # msg_type_event_dispatcher
+        msg_type_event_dispatcher
       when 'text'
         msg_type_text_dispatcher
     end
+  end
+
+  def show_guide_service_list
+    @message = "呃...不大明白，或者您的问题真的难倒我了，
+                要不您换个问法再试试，或许小滨就能明白了！
+                您也可以输入序号使用以下服务：\n
+                [0]关于《滨湖壹号公众号》
+                [1]当前最新消息
+                [?]使用说明\n"
+    @message = @message.gsub(/ /, '')
+    get_response_xml_message_by_type('text')
   end
 
   def msg_type_text_dispatcher
     command_hash = get_command_hash
 
     case command_hash[:key]
-      when 'BBQ' || 'bbq' || '0'
+      when 'BH' || '0'
+        show_welcome_message
+      when '1' #当前文章列表
         show_guide_service_list
-        # show_welcome_message
-      # when '1' #当前优惠活动
-      #   show_all_activities
-      # when '2' #参加活动
-      #   show_activity_link_page(command_hash[:value])
-      # when '3' #我的优惠券
-      #   show_my_coupons
-      # when '4' #生成二维码
-      #   create_qrcode(command_hash[:value])
-      # when '5' #最新消息
-      #   show_latest_message
+      when '?' #使用说明
+        show_guide_service_list
       else
         show_guide_service_list
     end
   end
 
+  def msg_type_event_dispatcher
+    event = @request_json['xml']['Event']
+    case event
+      when 'subscribe'
+        msg_type_subscribe
+      when 'SCAN'
+        msg_type_scan
+      else
+        show_guide_service_list
+    end
+  end
 
   def request_come_from_ihakula
     @params[:ihakula_request] == 'ihakula_northern_hemisphere'
@@ -99,35 +115,11 @@ class WeixinStore
   def get_command_hash
     @request_message = @request_json['xml']['Content']
     command_hash = {:key=>@request_message}
-
-    if @request_message.length > 1 then
-      @request_message.sub! '：',':'
-
-      if /^2:/ =~ @request_message then
-        command_hash = {:key=>'2', :value=>$'}
-      elsif /^4:/ =~ @request_message then
-        command_hash = {:key=>'4', :value=>$'}
-      end
-    end
-
     command_hash
   end
 
   def get_current_time
     Time.now.strftime('%Y-%m-%d %H:%M:%S')
-  end
-
-  def show_guide_service_list
-    @message = "呃...不大明白，或者您的问题真的难倒我了，
-                要不您换个问法再试试，或许小北和球球就能明白啦！
-                您也可以输入序号使用以下服务：\n
-                [0]关于《BBQ北伴球》
-                [1]当前优惠活动
-                [2]'2:'+活动序号参加活动（如2:1）
-                [3]我的优惠券
-                [4]'4:'+优惠券序号生成二维码(如4:1)\n"
-    @message = @message.gsub(/ /, '')
-    get_response_xml_message_by_type('text')
   end
 
   def get_response_xml_message_by_type(message_type)
@@ -191,11 +183,19 @@ class WeixinStore
 
   def get_template_about_us_item_json
     {
-        title: '关于我们：BBQ北伴球',
-        description: '您好，我们是小北和球球！很高兴能为您服务 ：) 。 为您提供优质的服务，是我们毕生的追求！',
-        pic_url: 'http://www.ihakula.com/bbq/wp-content/uploads/2015/07/place_holder_360200.png',
-        url: 'http://www.ihakula.com/bbq/?page_id=4'
+        title: '滨湖社区',
+        description: '滨湖社区微信公众号，为您收集周边生活所有信息，记录幸福小区生活每一天。',
+        pic_url: 'http://www.ihakula.com:9000/no1/wp-content/uploads/2016/10/binhu_300_200.png',
+        url: 'http://www.ihakula.com:9000/no1/2016/10/14/%E6%BB%A8%E6%B9%96%E5%A3%B9%E5%8F%B7%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7/'
     }
+  end
+
+  def msg_type_scan
+    msg_type_subscribe
+  end
+
+  def msg_type_subscribe # Subscribe Event
+      show_welcome_message
   end
 
 end
