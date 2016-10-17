@@ -53,7 +53,13 @@ class WeixinStore
                 [3]延期赔偿计算器
                 [4]钟律师联系方式
                 [5]售楼部联系方式
-                [?]使用说明\n"
+                [6]业主沟通群
+                [?]使用说明\n\n
+                常用沟通渠道：
+                QQ群：248177761
+                微信：滨湖壹家人
+                公从号：滨湖社区NO1
+                "
     @message = @message.gsub(/ /, '')
     get_response_xml_message_by_type('text')
   end
@@ -74,6 +80,8 @@ class WeixinStore
         show_lawyer_info
       when '5'
         show_no1_info
+      when '6'
+        show_contact_info
       when '?' #使用说明
         show_guide_service_list
       else
@@ -263,12 +271,13 @@ class WeixinStore
   end
 
   def show_no1_info
-    @message = "售楼部电话：59711111\n
-市民热线：12345\n
-江夏区信访局：87952522\n
-江夏区城管局：87918876\n
-东湖开发区城管局：87985308\n
-市城管服务热线：82712345\n"
+    @message = "售楼部电话：59711111\n市民热线：12345\n江夏区信访局：87952522\n江夏区城管局：87918876\n东湖开发区城管局：87985308\n市城管服务热线：82712345\n"
+    @message = @message.gsub(/ /, '')
+    get_response_xml_message_by_type('text')
+  end
+
+  def show_contact_info
+    @message = "绩业主QQ群：248177761\n微信：滨湖壹家人\n公从号：滨湖社区NO1\n"
     @message = @message.gsub(/ /, '')
     get_response_xml_message_by_type('text')
   end
