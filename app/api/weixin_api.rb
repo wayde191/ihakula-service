@@ -28,6 +28,10 @@ module IHakula
         def weixin_store
           WeixinStoreFactory::create(session, settings)
         end
+
+        def weixin_zy_store
+          WeixinStoreFactory::create_zy(session, settings)
+        end
       end
 
       desc 'Operations on iHakula Joke'
@@ -45,6 +49,29 @@ module IHakula
                        ] do
           begin
             weixin_store.event_handler(params)
+          rescue IhakulaServiceError => ex
+            status FAILURE
+            {error:SERVER_ERROR, message:ex.message}
+          end
+        end
+
+      end
+
+      desc 'Operations on ZY'
+      resource :weixin_zy do
+
+        desc 'Response to zycyy weixin request', is_array: true
+        params do
+          requires :ihakula_request, type: String, not_empty: true, desc: 'iHakula key'
+          requires :request_xml, type: String, not_empty: true, desc: 'request data'
+        end
+        post '/event/center', http_codes: [
+                                [OK, OK_MESSAGE],
+                                [MALFORMED_REQUEST, MALFORMED_REQUEST_DESCRIPTION],
+                                [FAILURE, SERVER_ERROR]
+                            ] do
+          begin
+            weixin_zy_store.event_handler(params)
           rescue IhakulaServiceError => ex
             status FAILURE
             {error:SERVER_ERROR, message:ex.message}
