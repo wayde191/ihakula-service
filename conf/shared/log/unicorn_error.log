@@ -1,0 +1,347 @@
+I, [2017-02-07T08:36:40.638118 #7428]  INFO -- : listening on addr=/home/NorthernHemisphere/ihakula-service/conf/shared/unicorn.sock fd=12
+I, [2017-02-07T08:36:40.638671 #7428]  INFO -- : worker=0 spawning...
+I, [2017-02-07T08:36:40.639884 #7428]  INFO -- : worker=1 spawning...
+I, [2017-02-07T08:36:40.640527 #7431]  INFO -- : worker=0 spawned pid=7431
+I, [2017-02-07T08:36:40.641037 #7431]  INFO -- : Refreshing Gem list
+I, [2017-02-07T08:36:40.641468 #7428]  INFO -- : master process ready
+I, [2017-02-07T08:36:40.642677 #7434]  INFO -- : worker=1 spawned pid=7434
+I, [2017-02-07T08:36:40.643388 #7434]  INFO -- : Refreshing Gem list
+I, [2017-02-07T08:37:58.096889 #7431]  INFO -- : worker=0 ready
+I, [2017-02-07T08:37:58.097030 #7434]  INFO -- : worker=1 ready
+I, [2017-02-07T09:11:03.354034 #18]  INFO -- : unlinking existing socket=/home/NorthernHemisphere/ihakula-service/conf/shared/unicorn.sock
+I, [2017-02-07T09:11:03.356807 #18]  INFO -- : listening on addr=/home/NorthernHemisphere/ihakula-service/conf/shared/unicorn.sock fd=12
+I, [2017-02-07T09:11:03.357513 #18]  INFO -- : worker=0 spawning...
+I, [2017-02-07T09:11:03.359105 #18]  INFO -- : worker=1 spawning...
+I, [2017-02-07T09:11:03.359811 #21]  INFO -- : worker=0 spawned pid=21
+I, [2017-02-07T09:11:03.360425 #21]  INFO -- : Refreshing Gem list
+I, [2017-02-07T09:11:03.360950 #18]  INFO -- : master process ready
+I, [2017-02-07T09:11:03.361853 #24]  INFO -- : worker=1 spawned pid=24
+I, [2017-02-07T09:11:03.362466 #24]  INFO -- : Refreshing Gem list
+I, [2017-02-07T09:11:35.522598 #17]  INFO -- : unlinking existing socket=/home/NorthernHemisphere/ihakula-service/conf/shared/unicorn.sock
+I, [2017-02-07T09:11:35.524510 #17]  INFO -- : listening on addr=/home/NorthernHemisphere/ihakula-service/conf/shared/unicorn.sock fd=12
+I, [2017-02-07T09:11:35.525019 #17]  INFO -- : worker=0 spawning...
+I, [2017-02-07T09:11:35.526208 #17]  INFO -- : worker=1 spawning...
+I, [2017-02-07T09:11:35.526709 #20]  INFO -- : worker=0 spawned pid=20
+I, [2017-02-07T09:11:35.527532 #20]  INFO -- : Refreshing Gem list
+I, [2017-02-07T09:11:35.528475 #17]  INFO -- : master process ready
+I, [2017-02-07T09:11:35.529216 #23]  INFO -- : worker=1 spawned pid=23
+I, [2017-02-07T09:11:35.530196 #23]  INFO -- : Refreshing Gem list
+ArgumentError: Already running on PID:17 (or pid=/home/NorthernHemisphere/ihakula-service/conf/shared/pids/unicorn.pid is stale)
+  /home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/lib/unicorn/http_server.rb:206:in `pid='
+  /home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/lib/unicorn/http_server.rb:135:in `start'
+  /home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/bin/unicorn:126:in `<top (required)>'
+  /home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/bin/unicorn:23:in `load'
+  /home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/bin/unicorn:23:in `<top (required)>'
+I, [2017-02-07T09:22:31.190771 #32]  INFO -- : unlinking existing socket=/home/NorthernHemisphere/ihakula-service/conf/shared/unicorn.sock
+I, [2017-02-07T09:22:31.195282 #32]  INFO -- : listening on addr=/home/NorthernHemisphere/ihakula-service/conf/shared/unicorn.sock fd=12
+I, [2017-02-07T09:22:31.196021 #32]  INFO -- : worker=0 spawning...
+I, [2017-02-07T09:22:31.197347 #32]  INFO -- : worker=1 spawning...
+I, [2017-02-07T09:22:31.197960 #35]  INFO -- : worker=0 spawned pid=35
+I, [2017-02-07T09:22:31.198526 #35]  INFO -- : Refreshing Gem list
+I, [2017-02-07T09:22:31.200563 #32]  INFO -- : master process ready
+I, [2017-02-07T09:22:31.200905 #38]  INFO -- : worker=1 spawned pid=38
+I, [2017-02-07T09:22:31.201849 #38]  INFO -- : Refreshing Gem list
+I, [2017-02-07T09:23:45.635970 #35]  INFO -- : worker=0 ready
+I, [2017-02-07T09:23:45.636504 #38]  INFO -- : worker=1 ready
+I, [2017-02-07T09:24:42.785448 #31]  INFO -- : unlinking existing socket=/home/NorthernHemisphere/ihakula-service/conf/shared/unicorn.sock
+I, [2017-02-07T09:24:42.787997 #31]  INFO -- : listening on addr=/home/NorthernHemisphere/ihakula-service/conf/shared/unicorn.sock fd=12
+I, [2017-02-07T09:24:42.788467 #31]  INFO -- : worker=0 spawning...
+I, [2017-02-07T09:24:42.789674 #31]  INFO -- : worker=1 spawning...
+I, [2017-02-07T09:24:42.790219 #34]  INFO -- : worker=0 spawned pid=34
+I, [2017-02-07T09:24:42.790842 #34]  INFO -- : Refreshing Gem list
+I, [2017-02-07T09:24:42.791574 #31]  INFO -- : master process ready
+I, [2017-02-07T09:24:42.792096 #37]  INFO -- : worker=1 spawned pid=37
+I, [2017-02-07T09:24:42.793277 #37]  INFO -- : Refreshing Gem list
+I, [2017-02-07T09:26:00.446271 #37]  INFO -- : worker=1 ready
+I, [2017-02-07T09:26:00.446876 #34]  INFO -- : worker=0 ready
+172.17.0.1 - - [07/Feb/2017:09:27:43 +0000] "GET / HTTP/1.0" 200 - 1.4577
+172.17.0.1 - - [07/Feb/2017:09:27:43 +0000] "GET /favicon.ico HTTP/1.0" 200 - 0.0097
+172.17.0.1 - - [07/Feb/2017:09:27:45 +0000] "GET /swagger_doc HTTP/1.0" 200 633 2.1113
+172.17.0.1 - - [07/Feb/2017:09:27:45 +0000] "GET /swagger_doc/accounts HTTP/1.0" 200 598 0.0050
+172.17.0.1 - - [07/Feb/2017:09:27:45 +0000] "GET /swagger_doc/user HTTP/1.0" 200 2962 0.0093
+172.17.0.1 - - [07/Feb/2017:09:27:45 +0000] "GET /swagger_doc/joke HTTP/1.0" 200 854 0.0067
+172.17.0.1 - - [07/Feb/2017:09:27:45 +0000] "GET /swagger_doc/wordpress HTTP/1.0" 200 3520 0.0100
+172.17.0.1 - - [07/Feb/2017:09:27:45 +0000] "GET /swagger_doc/fund HTTP/1.0" 200 2536 0.0078
+172.17.0.1 - - [07/Feb/2017:09:27:45 +0000] "GET /swagger_doc/tool HTTP/1.0" 200 481 0.0065
+172.17.0.1 - - [07/Feb/2017:09:27:45 +0000] "GET /swagger_doc/weixin HTTP/1.0" 200 717 0.0055
+172.17.0.1 - - [07/Feb/2017:09:27:45 +0000] "GET /swagger_doc/weixin_zy HTTP/1.0" 200 734 0.0063
+172.17.0.1 - - [07/Feb/2017:09:27:46 +0000] "GET /swagger_doc/order HTTP/1.0" 200 14288 1.0174
+ArgumentError: Already running on PID:31 (or pid=/home/NorthernHemisphere/ihakula-service/conf/shared/pids/unicorn.pid is stale)
+  /home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/lib/unicorn/http_server.rb:206:in `pid='
+  /home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/lib/unicorn/http_server.rb:135:in `start'
+  /home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/bin/unicorn:126:in `<top (required)>'
+  /home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/bin/unicorn:23:in `load'
+  /home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/bin/unicorn:23:in `<top (required)>'
+I, [2017-02-07T09:35:01.707543 #50]  INFO -- : unlinking existing socket=/home/NorthernHemisphere/ihakula-service/conf/shared/unicorn.sock
+I, [2017-02-07T09:35:01.709313 #50]  INFO -- : listening on addr=/home/NorthernHemisphere/ihakula-service/conf/shared/unicorn.sock fd=12
+I, [2017-02-07T09:35:01.709771 #50]  INFO -- : worker=0 spawning...
+I, [2017-02-07T09:35:01.710975 #50]  INFO -- : worker=1 spawning...
+I, [2017-02-07T09:35:01.711638 #53]  INFO -- : worker=0 spawned pid=53
+I, [2017-02-07T09:35:01.712127 #53]  INFO -- : Refreshing Gem list
+I, [2017-02-07T09:35:01.712975 #50]  INFO -- : master process ready
+I, [2017-02-07T09:35:01.714484 #56]  INFO -- : worker=1 spawned pid=56
+I, [2017-02-07T09:35:01.723612 #56]  INFO -- : Refreshing Gem list
+I, [2017-02-07T09:36:08.841523 #56]  INFO -- : worker=1 ready
+I, [2017-02-07T09:36:08.912593 #53]  INFO -- : worker=0 ready
+ArgumentError: Already running on PID:50 (or pid=/home/NorthernHemisphere/ihakula-service/conf/shared/pids/unicorn.pid is stale)
+  /home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/lib/unicorn/http_server.rb:206:in `pid='
+  /home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/lib/unicorn/http_server.rb:135:in `start'
+  /home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/bin/unicorn:126:in `<top (required)>'
+  /home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/bin/unicorn:23:in `load'
+  /home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/bin/unicorn:23:in `<top (required)>'
+172.17.0.1 - - [07/Feb/2017:09:38:49 +0000] "GET / HTTP/1.0" 200 - 1.2500
+172.17.0.1 - - [07/Feb/2017:09:38:50 +0000] "GET /favicon.ico HTTP/1.0" 200 - 0.0065
+172.17.0.1 - - [07/Feb/2017:09:38:52 +0000] "GET /swagger_doc HTTP/1.0" 200 633 2.0309
+172.17.0.1 - - [07/Feb/2017:09:38:52 +0000] "GET /swagger_doc/order HTTP/1.0" 200 14288 0.0220
+172.17.0.1 - - [07/Feb/2017:09:38:52 +0000] "GET /swagger_doc/user HTTP/1.0" 200 2962 0.0093
+172.17.0.1 - - [07/Feb/2017:09:38:52 +0000] "GET /swagger_doc/fund HTTP/1.0" 200 2536 0.0086
+172.17.0.1 - - [07/Feb/2017:09:38:52 +0000] "GET /swagger_doc/joke HTTP/1.0" 200 854 0.0077
+172.17.0.1 - - [07/Feb/2017:09:38:52 +0000] "GET /swagger_doc/wordpress HTTP/1.0" 200 3520 0.0117
+172.17.0.1 - - [07/Feb/2017:09:38:52 +0000] "GET /swagger_doc/tool HTTP/1.0" 200 481 0.0133
+172.17.0.1 - - [07/Feb/2017:09:38:52 +0000] "GET /swagger_doc/weixin HTTP/1.0" 200 717 0.0052
+172.17.0.1 - - [07/Feb/2017:09:38:52 +0000] "GET /swagger_doc/weixin_zy HTTP/1.0" 200 734 0.0053
+172.17.0.1 - - [07/Feb/2017:09:38:53 +0000] "GET /swagger_doc/accounts HTTP/1.0" 200 598 1.0029
+ArgumentError: Already running on PID:50 (or pid=/home/NorthernHemisphere/ihakula-service/conf/shared/pids/unicorn.pid is stale)
+  /home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/lib/unicorn/http_server.rb:206:in `pid='
+  /home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/lib/unicorn/http_server.rb:135:in `start'
+  /home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/bin/unicorn:126:in `<top (required)>'
+  /home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/bin/unicorn:23:in `load'
+  /home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/bin/unicorn:23:in `<top (required)>'
+I, [2017-02-07T09:41:00.411076 #202]  INFO -- : unlinking existing socket=/home/NorthernHemisphere/ihakula-service/conf/shared/unicorn.sock
+I, [2017-02-07T09:41:00.413071 #202]  INFO -- : listening on addr=/home/NorthernHemisphere/ihakula-service/conf/shared/unicorn.sock fd=12
+I, [2017-02-07T09:41:00.413495 #202]  INFO -- : worker=0 spawning...
+I, [2017-02-07T09:41:00.414901 #202]  INFO -- : worker=1 spawning...
+I, [2017-02-07T09:41:00.415607 #205]  INFO -- : worker=0 spawned pid=205
+I, [2017-02-07T09:41:00.416215 #205]  INFO -- : Refreshing Gem list
+I, [2017-02-07T09:41:00.417763 #202]  INFO -- : master process ready
+I, [2017-02-07T09:41:00.418465 #208]  INFO -- : worker=1 spawned pid=208
+I, [2017-02-07T09:41:00.419825 #208]  INFO -- : Refreshing Gem list
+I, [2017-02-07T09:42:22.064585 #208]  INFO -- : worker=1 ready
+I, [2017-02-07T09:42:22.068429 #205]  INFO -- : worker=0 ready
+172.17.0.1 - - [07/Feb/2017:09:42:24 +0000] "GET / HTTP/1.0" 200 - 2.1521
+172.17.0.1 - - [07/Feb/2017:09:42:24 +0000] "GET / HTTP/1.0" 200 - 0.0028
+172.17.0.1 - - [07/Feb/2017:09:42:24 +0000] "GET / HTTP/1.0" 200 - 0.0068
+172.17.0.1 - - [07/Feb/2017:09:42:24 +0000] "GET / HTTP/1.0" 200 - 2.2029
+172.17.0.1 - - [07/Feb/2017:09:42:25 +0000] "GET /swagger_doc HTTP/1.0" 200 633 1.1286
+172.17.0.1 - - [07/Feb/2017:09:42:25 +0000] "GET /swagger_doc/accounts HTTP/1.0" 200 598 0.0067
+172.17.0.1 - - [07/Feb/2017:09:42:25 +0000] "GET /swagger_doc/user HTTP/1.0" 200 2962 0.0129
+172.17.0.1 - - [07/Feb/2017:09:42:25 +0000] "GET /swagger_doc/fund HTTP/1.0" 200 2536 0.0105
+172.17.0.1 - - [07/Feb/2017:09:42:25 +0000] "GET /swagger_doc/joke HTTP/1.0" 200 854 0.0074
+172.17.0.1 - - [07/Feb/2017:09:42:25 +0000] "GET /swagger_doc/wordpress HTTP/1.0" 200 3520 0.0146
+172.17.0.1 - - [07/Feb/2017:09:42:25 +0000] "GET /swagger_doc/tool HTTP/1.0" 200 481 0.0064
+172.17.0.1 - - [07/Feb/2017:09:42:25 +0000] "GET /swagger_doc/weixin HTTP/1.0" 200 717 0.0060
+172.17.0.1 - - [07/Feb/2017:09:42:25 +0000] "GET /swagger_doc/weixin_zy HTTP/1.0" 200 734 0.0059
+172.17.0.1 - - [07/Feb/2017:09:42:26 +0000] "GET /swagger_doc/order HTTP/1.0" 200 14288 1.1842
+172.17.0.1 - - [07/Feb/2017:09:42:42 +0000] "GET / HTTP/1.0" 200 - 0.0071
+172.17.0.1 - - [07/Feb/2017:09:42:42 +0000] "GET /swagger_doc HTTP/1.0" 200 633 0.0040
+172.17.0.1 - - [07/Feb/2017:09:42:42 +0000] "GET /swagger_doc/accounts HTTP/1.0" 200 598 0.0043
+172.17.0.1 - - [07/Feb/2017:09:42:42 +0000] "GET /swagger_doc/user HTTP/1.0" 200 2962 0.0108
+172.17.0.1 - - [07/Feb/2017:09:42:42 +0000] "GET /swagger_doc/fund HTTP/1.0" 200 2536 0.0071
+172.17.0.1 - - [07/Feb/2017:09:42:42 +0000] "GET /swagger_doc/tool HTTP/1.0" 200 481 0.0049
+172.17.0.1 - - [07/Feb/2017:09:42:42 +0000] "GET /swagger_doc/order HTTP/1.0" 200 14288 0.0251
+172.17.0.1 - - [07/Feb/2017:09:42:42 +0000] "GET /swagger_doc/joke HTTP/1.0" 200 854 0.0075
+172.17.0.1 - - [07/Feb/2017:09:42:42 +0000] "GET /swagger_doc/weixin HTTP/1.0" 200 717 0.0043
+172.17.0.1 - - [07/Feb/2017:09:42:42 +0000] "GET /swagger_doc/wordpress HTTP/1.0" 200 3520 0.0080
+172.17.0.1 - - [07/Feb/2017:09:42:42 +0000] "GET /swagger_doc/weixin_zy HTTP/1.0" 200 734 0.0082
+172.17.0.1 - - [07/Feb/2017:09:42:42 +0000] "GET /favicon.ico HTTP/1.0" 200 - 0.0153
+172.17.0.1 - - [07/Feb/2017:09:42:43 +0000] "GET / HTTP/1.0" 200 - 0.0078
+172.17.0.1 - - [07/Feb/2017:09:42:43 +0000] "GET /swagger_doc HTTP/1.0" 200 633 0.0055
+172.17.0.1 - - [07/Feb/2017:09:42:43 +0000] "GET /swagger_doc/accounts HTTP/1.0" 200 598 0.0063
+172.17.0.1 - - [07/Feb/2017:09:42:43 +0000] "GET /swagger_doc/user HTTP/1.0" 200 2962 0.0093
+172.17.0.1 - - [07/Feb/2017:09:42:43 +0000] "GET /swagger_doc/order HTTP/1.0" 200 14288 0.0271
+172.17.0.1 - - [07/Feb/2017:09:42:43 +0000] "GET /swagger_doc/fund HTTP/1.0" 200 2536 0.0093
+172.17.0.1 - - [07/Feb/2017:09:42:43 +0000] "GET /swagger_doc/joke HTTP/1.0" 200 854 0.0073
+172.17.0.1 - - [07/Feb/2017:09:42:43 +0000] "GET /swagger_doc/wordpress HTTP/1.0" 200 3520 0.0102
+172.17.0.1 - - [07/Feb/2017:09:42:43 +0000] "GET /swagger_doc/tool HTTP/1.0" 200 481 0.0069
+172.17.0.1 - - [07/Feb/2017:09:42:43 +0000] "GET /swagger_doc/weixin HTTP/1.0" 200 717 0.0084
+172.17.0.1 - - [07/Feb/2017:09:42:43 +0000] "GET /swagger_doc/weixin_zy HTTP/1.0" 200 734 0.0076
+172.17.0.1 - - [07/Feb/2017:09:42:43 +0000] "GET /favicon.ico HTTP/1.0" 200 - 0.0105
+172.17.0.1 - - [07/Feb/2017:09:42:44 +0000] "GET / HTTP/1.0" 200 - 0.0066
+172.17.0.1 - - [07/Feb/2017:09:42:44 +0000] "GET /swagger_doc HTTP/1.0" 200 633 0.0058
+172.17.0.1 - - [07/Feb/2017:09:42:44 +0000] "GET /swagger_doc/accounts HTTP/1.0" 200 598 0.0120
+172.17.0.1 - - [07/Feb/2017:09:42:44 +0000] "GET /swagger_doc/fund HTTP/1.0" 200 2536 0.0156
+172.17.0.1 - - [07/Feb/2017:09:42:44 +0000] "GET /swagger_doc/user HTTP/1.0" 200 2962 0.0132
+172.17.0.1 - - [07/Feb/2017:09:42:44 +0000] "GET /swagger_doc/joke HTTP/1.0" 200 854 0.0074
+172.17.0.1 - - [07/Feb/2017:09:42:44 +0000] "GET /swagger_doc/order HTTP/1.0" 200 14288 0.0463
+172.17.0.1 - - [07/Feb/2017:09:42:44 +0000] "GET /swagger_doc/wordpress HTTP/1.0" 200 3520 0.0373
+172.17.0.1 - - [07/Feb/2017:09:42:44 +0000] "GET /swagger_doc/weixin HTTP/1.0" 200 717 0.0057
+172.17.0.1 - - [07/Feb/2017:09:42:44 +0000] "GET /swagger_doc/tool HTTP/1.0" 200 481 0.0075
+172.17.0.1 - - [07/Feb/2017:09:42:44 +0000] "GET /swagger_doc/weixin_zy HTTP/1.0" 200 734 0.0099
+172.17.0.1 - - [07/Feb/2017:09:42:44 +0000] "GET /favicon.ico HTTP/1.0" 200 - 0.0137
+172.17.0.1 - - [07/Feb/2017:09:42:49 +0000] "GET /swagger_doc HTTP/1.0" 200 633 0.0071
+172.17.0.1 - - [07/Feb/2017:09:42:49 +0000] "GET /swagger_doc/accounts HTTP/1.0" 200 598 0.0065
+172.17.0.1 - - [07/Feb/2017:09:42:49 +0000] "GET /swagger_doc/fund HTTP/1.0" 200 2536 0.0142
+172.17.0.1 - - [07/Feb/2017:09:42:49 +0000] "GET /swagger_doc/joke HTTP/1.0" 200 854 0.0076
+172.17.0.1 - - [07/Feb/2017:09:42:49 +0000] "GET /swagger_doc/wordpress HTTP/1.0" 200 3520 0.0243
+172.17.0.1 - - [07/Feb/2017:09:42:49 +0000] "GET /swagger_doc/user HTTP/1.0" 200 2962 0.0105
+172.17.0.1 - - [07/Feb/2017:09:42:49 +0000] "GET /swagger_doc/order HTTP/1.0" 200 14288 0.0397
+172.17.0.1 - - [07/Feb/2017:09:42:49 +0000] "GET /swagger_doc/weixin_zy HTTP/1.0" 200 734 0.0048
+172.17.0.1 - - [07/Feb/2017:09:42:49 +0000] "GET /swagger_doc/tool HTTP/1.0" 200 481 0.0060
+172.17.0.1 - - [07/Feb/2017:09:42:49 +0000] "GET /swagger_doc/weixin HTTP/1.0" 200 717 0.0075
+I, [2017-02-07T09:43:25.847891 #31]  INFO -- : unlinking existing socket=/home/NorthernHemisphere/ihakula-service/conf/shared/unicorn.sock
+I, [2017-02-07T09:43:25.850717 #31]  INFO -- : listening on addr=/home/NorthernHemisphere/ihakula-service/conf/shared/unicorn.sock fd=12
+I, [2017-02-07T09:43:25.851144 #31]  INFO -- : worker=0 spawning...
+I, [2017-02-07T09:43:25.852336 #31]  INFO -- : worker=1 spawning...
+I, [2017-02-07T09:43:25.852945 #34]  INFO -- : worker=0 spawned pid=34
+I, [2017-02-07T09:43:25.853406 #34]  INFO -- : Refreshing Gem list
+I, [2017-02-07T09:43:25.854236 #31]  INFO -- : master process ready
+I, [2017-02-07T09:43:25.857433 #37]  INFO -- : worker=1 spawned pid=37
+I, [2017-02-07T09:43:25.862412 #37]  INFO -- : Refreshing Gem list
+I, [2017-02-07T09:44:47.894922 #34]  INFO -- : worker=0 ready
+I, [2017-02-07T09:44:47.895502 #37]  INFO -- : worker=1 ready
+I, [2017-02-07T09:51:16.077085 #32]  INFO -- : unlinking existing socket=/home/NorthernHemisphere/ihakula-service/conf/shared/unicorn.sock
+I, [2017-02-07T09:51:16.079177 #32]  INFO -- : listening on addr=/home/NorthernHemisphere/ihakula-service/conf/shared/unicorn.sock fd=12
+I, [2017-02-07T09:51:16.079854 #32]  INFO -- : worker=0 spawning...
+I, [2017-02-07T09:51:16.081338 #32]  INFO -- : worker=1 spawning...
+I, [2017-02-07T09:51:16.081912 #35]  INFO -- : worker=0 spawned pid=35
+I, [2017-02-07T09:51:16.082420 #35]  INFO -- : Refreshing Gem list
+I, [2017-02-07T09:51:16.083434 #32]  INFO -- : master process ready
+I, [2017-02-07T09:51:16.084823 #38]  INFO -- : worker=1 spawned pid=38
+I, [2017-02-07T09:51:16.085455 #38]  INFO -- : Refreshing Gem list
+I, [2017-02-07T09:52:32.069386 #38]  INFO -- : worker=1 ready
+I, [2017-02-07T09:52:32.069909 #35]  INFO -- : worker=0 ready
+172.17.0.1 - - [07/Feb/2017:09:52:33 +0000] "GET / HTTP/1.0" 200 - 1.5499
+172.17.0.1 - - [07/Feb/2017:09:52:33 +0000] "GET / HTTP/1.0" 200 - 0.0023
+172.17.0.1 - - [07/Feb/2017:09:52:33 +0000] "GET / HTTP/1.0" 200 - 0.0070
+172.17.0.1 - - [07/Feb/2017:09:52:33 +0000] "GET / HTTP/1.0" 200 - 1.5649
+172.17.0.1 - - [07/Feb/2017:09:52:33 +0000] "GET /favicon.ico HTTP/1.0" 200 - 0.0087
+172.17.0.1 - - [07/Feb/2017:09:52:34 +0000] "GET /swagger_doc HTTP/1.0" 200 633 0.9022
+172.17.0.1 - - [07/Feb/2017:09:52:34 +0000] "GET /swagger_doc/order HTTP/1.0" 200 14288 0.0215
+172.17.0.1 - - [07/Feb/2017:09:52:34 +0000] "GET /swagger_doc/user HTTP/1.0" 200 2962 0.0098
+172.17.0.1 - - [07/Feb/2017:09:52:34 +0000] "GET /swagger_doc/fund HTTP/1.0" 200 2536 0.0086
+172.17.0.1 - - [07/Feb/2017:09:52:34 +0000] "GET /swagger_doc/joke HTTP/1.0" 200 854 0.0085
+172.17.0.1 - - [07/Feb/2017:09:52:34 +0000] "GET /swagger_doc/wordpress HTTP/1.0" 200 3520 0.0071
+172.17.0.1 - - [07/Feb/2017:09:52:34 +0000] "GET /swagger_doc/tool HTTP/1.0" 200 481 0.0045
+172.17.0.1 - - [07/Feb/2017:09:52:34 +0000] "GET /swagger_doc/weixin HTTP/1.0" 200 717 0.0046
+172.17.0.1 - - [07/Feb/2017:09:52:34 +0000] "GET /swagger_doc/weixin_zy HTTP/1.0" 200 734 0.0044
+172.17.0.1 - - [07/Feb/2017:09:52:35 +0000] "GET /swagger_doc/accounts HTTP/1.0" 200 598 0.8666
+172.17.0.1 - - [07/Feb/2017:09:52:56 +0000] "GET / HTTP/1.0" 200 - 0.0076
+172.17.0.1 - - [07/Feb/2017:09:52:56 +0000] "GET /swagger_doc HTTP/1.0" 200 633 0.0036
+172.17.0.1 - - [07/Feb/2017:09:52:56 +0000] "GET /swagger_doc/accounts HTTP/1.0" 200 598 0.0089
+172.17.0.1 - - [07/Feb/2017:09:52:56 +0000] "GET /swagger_doc/fund HTTP/1.0" 200 2536 0.0091
+172.17.0.1 - - [07/Feb/2017:09:52:56 +0000] "GET /swagger_doc/user HTTP/1.0" 200 2962 0.0125
+172.17.0.1 - - [07/Feb/2017:09:52:56 +0000] "GET /swagger_doc/joke HTTP/1.0" 200 854 0.0062
+172.17.0.1 - - [07/Feb/2017:09:52:56 +0000] "GET /swagger_doc/order HTTP/1.0" 200 14288 0.0264
+172.17.0.1 - - [07/Feb/2017:09:52:56 +0000] "GET /swagger_doc/wordpress HTTP/1.0" 200 3520 0.0115
+172.17.0.1 - - [07/Feb/2017:09:52:56 +0000] "GET /swagger_doc/tool HTTP/1.0" 200 481 0.0073
+172.17.0.1 - - [07/Feb/2017:09:52:56 +0000] "GET /swagger_doc/weixin HTTP/1.0" 200 717 0.0075
+172.17.0.1 - - [07/Feb/2017:09:52:56 +0000] "GET /swagger_doc/weixin_zy HTTP/1.0" 200 734 0.0067
+172.17.0.1 - - [07/Feb/2017:09:52:56 +0000] "GET /favicon.ico HTTP/1.0" 200 - 0.0092
+172.17.0.1 - - [07/Feb/2017:09:52:57 +0000] "GET / HTTP/1.0" 200 - 0.0082
+172.17.0.1 - - [07/Feb/2017:09:52:57 +0000] "GET /swagger_doc HTTP/1.0" 200 633 0.0037
+172.17.0.1 - - [07/Feb/2017:09:52:57 +0000] "GET /swagger_doc/accounts HTTP/1.0" 200 598 0.0068
+172.17.0.1 - - [07/Feb/2017:09:52:57 +0000] "GET /swagger_doc/fund HTTP/1.0" 200 2536 0.0076
+172.17.0.1 - - [07/Feb/2017:09:52:57 +0000] "GET /swagger_doc/user HTTP/1.0" 200 2962 0.0186
+172.17.0.1 - - [07/Feb/2017:09:52:57 +0000] "GET /swagger_doc/order HTTP/1.0" 200 14288 0.0206
+172.17.0.1 - - [07/Feb/2017:09:52:57 +0000] "GET /swagger_doc/joke HTTP/1.0" 200 854 0.0155
+172.17.0.1 - - [07/Feb/2017:09:52:57 +0000] "GET /swagger_doc/tool HTTP/1.0" 200 481 0.0094
+172.17.0.1 - - [07/Feb/2017:09:52:57 +0000] "GET /swagger_doc/wordpress HTTP/1.0" 200 3520 0.0190
+172.17.0.1 - - [07/Feb/2017:09:52:57 +0000] "GET /swagger_doc/weixin HTTP/1.0" 200 717 0.0056
+172.17.0.1 - - [07/Feb/2017:09:52:57 +0000] "GET /favicon.ico HTTP/1.0" 200 - 0.0090
+172.17.0.1 - - [07/Feb/2017:09:52:57 +0000] "GET /swagger_doc/weixin_zy HTTP/1.0" 200 734 0.0128
+ArgumentError: Already running on PID:32 (or pid=/home/NorthernHemisphere/ihakula-service/conf/shared/pids/unicorn.pid is stale)
+  /home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/lib/unicorn/http_server.rb:206:in `pid='
+  /home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/lib/unicorn/http_server.rb:135:in `start'
+  /home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/bin/unicorn:126:in `<top (required)>'
+  /home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/bin/unicorn:23:in `load'
+  /home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/bin/unicorn:23:in `<top (required)>'
+ArgumentError: Already running on PID:32 (or pid=/home/NorthernHemisphere/ihakula-service/conf/shared/pids/unicorn.pid is stale)
+  /home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/lib/unicorn/http_server.rb:206:in `pid='
+  /home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/lib/unicorn/http_server.rb:135:in `start'
+  /home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/bin/unicorn:126:in `<top (required)>'
+  /home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/bin/unicorn:23:in `load'
+  /home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/bin/unicorn:23:in `<top (required)>'
+ArgumentError: Already running on PID:32 (or pid=/home/NorthernHemisphere/ihakula-service/conf/shared/pids/unicorn.pid is stale)
+  /home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/lib/unicorn/http_server.rb:206:in `pid='
+  /home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/lib/unicorn/http_server.rb:135:in `start'
+  /home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/bin/unicorn:126:in `<top (required)>'
+  /home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/bin/unicorn:23:in `load'
+  /home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/bin/unicorn:23:in `<top (required)>'
+ArgumentError: Already running on PID:32 (or pid=/home/NorthernHemisphere/ihakula-service/conf/shared/pids/unicorn.pid is stale)
+  /home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/lib/unicorn/http_server.rb:206:in `pid='
+  /home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/lib/unicorn/http_server.rb:135:in `start'
+  /home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/bin/unicorn:126:in `<top (required)>'
+  /home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/bin/unicorn:23:in `load'
+  /home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/bin/unicorn:23:in `<top (required)>'
+ArgumentError: Already running on PID:32 (or pid=/home/NorthernHemisphere/ihakula-service/conf/shared/pids/unicorn.pid is stale)
+  /home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/lib/unicorn/http_server.rb:206:in `pid='
+  /home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/lib/unicorn/http_server.rb:135:in `start'
+  /home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/bin/unicorn:126:in `<top (required)>'
+  /home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/bin/unicorn:23:in `load'
+  /home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/bin/unicorn:23:in `<top (required)>'
+I, [2017-02-07T09:57:08.013012 #51]  INFO -- : unlinking existing socket=/home/NorthernHemisphere/ihakula-service/conf/shared/unicorn.sock
+I, [2017-02-07T09:57:08.015401 #51]  INFO -- : listening on addr=/home/NorthernHemisphere/ihakula-service/conf/shared/unicorn.sock fd=12
+I, [2017-02-07T09:57:08.015880 #51]  INFO -- : worker=0 spawning...
+I, [2017-02-07T09:57:08.017064 #51]  INFO -- : worker=1 spawning...
+I, [2017-02-07T09:57:08.017732 #54]  INFO -- : worker=0 spawned pid=54
+I, [2017-02-07T09:57:08.018267 #54]  INFO -- : Refreshing Gem list
+I, [2017-02-07T09:57:08.018674 #51]  INFO -- : master process ready
+I, [2017-02-07T09:57:08.020430 #57]  INFO -- : worker=1 spawned pid=57
+I, [2017-02-07T09:57:08.021825 #57]  INFO -- : Refreshing Gem list
+I, [2017-02-07T09:58:29.758735 #57]  INFO -- : worker=1 ready
+I, [2017-02-07T09:58:29.759515 #54]  INFO -- : worker=0 ready
+172.17.0.1 - - [07/Feb/2017:09:58:31 +0000] "GET / HTTP/1.0" 200 - 1.7548
+172.17.0.1 - - [07/Feb/2017:09:58:31 +0000] "GET / HTTP/1.0" 200 - 0.0024
+172.17.0.1 - - [07/Feb/2017:09:58:31 +0000] "GET / HTTP/1.0" 200 - 0.0024
+172.17.0.1 - - [07/Feb/2017:09:58:31 +0000] "GET / HTTP/1.0" 200 - 0.0077
+172.17.0.1 - - [07/Feb/2017:09:58:31 +0000] "GET / HTTP/1.0" 200 - 1.7772
+172.17.0.1 - - [07/Feb/2017:09:58:31 +0000] "GET /favicon.ico HTTP/1.0" 200 - 0.0072
+172.17.0.1 - - [07/Feb/2017:09:58:32 +0000] "GET /swagger_doc HTTP/1.0" 200 633 1.0154
+172.17.0.1 - - [07/Feb/2017:09:58:32 +0000] "GET /swagger_doc/order HTTP/1.0" 200 14288 0.0245
+172.17.0.1 - - [07/Feb/2017:09:58:32 +0000] "GET /swagger_doc/user HTTP/1.0" 200 2962 0.0109
+172.17.0.1 - - [07/Feb/2017:09:58:32 +0000] "GET /swagger_doc/fund HTTP/1.0" 200 2536 0.0092
+172.17.0.1 - - [07/Feb/2017:09:58:32 +0000] "GET /swagger_doc/joke HTTP/1.0" 200 854 0.0061
+172.17.0.1 - - [07/Feb/2017:09:58:32 +0000] "GET /swagger_doc/wordpress HTTP/1.0" 200 3520 0.0079
+172.17.0.1 - - [07/Feb/2017:09:58:32 +0000] "GET /swagger_doc/tool HTTP/1.0" 200 481 0.0052
+172.17.0.1 - - [07/Feb/2017:09:58:32 +0000] "GET /swagger_doc/weixin HTTP/1.0" 200 717 0.0057
+172.17.0.1 - - [07/Feb/2017:09:58:32 +0000] "GET /swagger_doc/weixin_zy HTTP/1.0" 200 734 0.0048
+172.17.0.1 - - [07/Feb/2017:09:58:33 +0000] "GET /swagger_doc/accounts HTTP/1.0" 200 598 1.0391
+I, [2017-02-07T09:59:01.793876 #124]  INFO -- : unlinking existing socket=/home/NorthernHemisphere/ihakula-service/conf/shared/unicorn.sock
+I, [2017-02-07T09:59:01.795487 #124]  INFO -- : listening on addr=/home/NorthernHemisphere/ihakula-service/conf/shared/unicorn.sock fd=11
+I, [2017-02-07T09:59:01.795920 #124]  INFO -- : worker=0 spawning...
+I, [2017-02-07T09:59:01.797288 #124]  INFO -- : worker=1 spawning...
+I, [2017-02-07T09:59:01.797796 #126]  INFO -- : worker=0 spawned pid=126
+I, [2017-02-07T09:59:01.798382 #126]  INFO -- : Refreshing Gem list
+I, [2017-02-07T09:59:01.799296 #124]  INFO -- : master process ready
+I, [2017-02-07T09:59:01.800598 #129]  INFO -- : worker=1 spawned pid=129
+I, [2017-02-07T09:59:01.801205 #129]  INFO -- : Refreshing Gem list
+I, [2017-02-07T09:59:20.341342 #124]  INFO -- : reaped #<Process::Status: pid 126 exit 0> worker=0
+I, [2017-02-07T09:59:20.344944 #124]  INFO -- : reaped #<Process::Status: pid 129 exit 0> worker=1
+I, [2017-02-07T09:59:20.346123 #124]  INFO -- : master complete
+I, [2017-02-07T09:59:30.436625 #139]  INFO -- : unlinking existing socket=/home/NorthernHemisphere/ihakula-service/conf/shared/unicorn.sock
+I, [2017-02-07T09:59:30.439167 #139]  INFO -- : listening on addr=/home/NorthernHemisphere/ihakula-service/conf/shared/unicorn.sock fd=12
+I, [2017-02-07T09:59:30.439729 #139]  INFO -- : worker=0 spawning...
+I, [2017-02-07T09:59:30.441426 #139]  INFO -- : worker=1 spawning...
+I, [2017-02-07T09:59:30.442082 #142]  INFO -- : worker=0 spawned pid=142
+I, [2017-02-07T09:59:30.442628 #142]  INFO -- : Refreshing Gem list
+I, [2017-02-07T09:59:30.443975 #139]  INFO -- : master process ready
+I, [2017-02-07T09:59:30.445277 #145]  INFO -- : worker=1 spawned pid=145
+I, [2017-02-07T09:59:30.446031 #145]  INFO -- : Refreshing Gem list
+I, [2017-02-07T10:00:49.015741 #142]  INFO -- : worker=0 ready
+I, [2017-02-07T10:00:49.016236 #145]  INFO -- : worker=1 ready
+172.17.0.1 - - [07/Feb/2017:10:00:50 +0000] "GET / HTTP/1.0" 200 - 1.6482
+172.17.0.1 - - [07/Feb/2017:10:00:50 +0000] "GET / HTTP/1.0" 200 - 0.0068
+172.17.0.1 - - [07/Feb/2017:10:00:50 +0000] "GET / HTTP/1.0" 200 - 1.6884
+172.17.0.1 - - [07/Feb/2017:10:00:50 +0000] "GET /favicon.ico HTTP/1.0" 200 - 0.0064
+172.17.0.1 - - [07/Feb/2017:10:00:51 +0000] "GET /swagger_doc HTTP/1.0" 200 633 1.1071
+172.17.0.1 - - [07/Feb/2017:10:00:51 +0000] "GET /swagger_doc/order HTTP/1.0" 200 14288 0.0181
+172.17.0.1 - - [07/Feb/2017:10:00:51 +0000] "GET /swagger_doc/user HTTP/1.0" 200 2962 0.0132
+172.17.0.1 - - [07/Feb/2017:10:00:51 +0000] "GET /swagger_doc/fund HTTP/1.0" 200 2536 0.0079
+172.17.0.1 - - [07/Feb/2017:10:00:51 +0000] "GET /swagger_doc/joke HTTP/1.0" 200 854 0.0069
+172.17.0.1 - - [07/Feb/2017:10:00:51 +0000] "GET /swagger_doc/wordpress HTTP/1.0" 200 3520 0.0088
+172.17.0.1 - - [07/Feb/2017:10:00:51 +0000] "GET /swagger_doc/tool HTTP/1.0" 200 481 0.0055
+172.17.0.1 - - [07/Feb/2017:10:00:51 +0000] "GET /swagger_doc/weixin HTTP/1.0" 200 717 0.0053
+172.17.0.1 - - [07/Feb/2017:10:00:51 +0000] "GET /swagger_doc/weixin_zy HTTP/1.0" 200 734 0.0048
+172.17.0.1 - - [07/Feb/2017:10:00:52 +0000] "GET /swagger_doc/accounts HTTP/1.0" 200 598 1.0342
+172.17.0.1 - - [07/Feb/2017:10:01:02 +0000] "GET / HTTP/1.0" 200 - 0.0071
+172.17.0.1 - - [07/Feb/2017:10:01:02 +0000] "GET /swagger_doc HTTP/1.0" 200 633 0.0160
+172.17.0.1 - - [07/Feb/2017:10:01:02 +0000] "GET /swagger_doc/accounts HTTP/1.0" 200 598 0.0087
+172.17.0.1 - - [07/Feb/2017:10:01:02 +0000] "GET /swagger_doc/wordpress HTTP/1.0" 200 3520 0.0128
+172.17.0.1 - - [07/Feb/2017:10:01:02 +0000] "GET /swagger_doc/fund HTTP/1.0" 200 2536 0.0073
+172.17.0.1 - - [07/Feb/2017:10:01:02 +0000] "GET /swagger_doc/order HTTP/1.0" 200 14288 0.0247
+172.17.0.1 - - [07/Feb/2017:10:01:02 +0000] "GET /swagger_doc/joke HTTP/1.0" 200 854 0.0104
+172.17.0.1 - - [07/Feb/2017:10:01:02 +0000] "GET /swagger_doc/tool HTTP/1.0" 200 481 0.0035
+172.17.0.1 - - [07/Feb/2017:10:01:02 +0000] "GET /swagger_doc/user HTTP/1.0" 200 2962 0.0085
+172.17.0.1 - - [07/Feb/2017:10:01:02 +0000] "GET /swagger_doc/weixin HTTP/1.0" 200 717 0.0043
+172.17.0.1 - - [07/Feb/2017:10:01:02 +0000] "GET /swagger_doc/weixin_zy HTTP/1.0" 200 734 0.0047
+172.17.0.1 - - [07/Feb/2017:10:01:02 +0000] "GET /favicon.ico HTTP/1.0" 200 - 0.0087
