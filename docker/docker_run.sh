@@ -5,7 +5,9 @@ docker rm ihakula-service || true
 
 docker run \
  --name ihakula-service \
- -p 8700:9395 \
+ -p 8801:9395 \
+ -e VIRTUAL_HOST=api.sunzhongmou.com \
+ --link zm-mysql:db \
  -itd \
  -v $(pwd):/home/NorthernHemisphere/ihakula-service/ \
  -w /home/NorthernHemisphere/ihakula-service/ \
