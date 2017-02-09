@@ -345,3 +345,27 @@ I, [2017-02-07T10:00:49.016236 #145]  INFO -- : worker=1 ready
 172.17.0.1 - - [07/Feb/2017:10:01:02 +0000] "GET /swagger_doc/weixin HTTP/1.0" 200 717 0.0043
 172.17.0.1 - - [07/Feb/2017:10:01:02 +0000] "GET /swagger_doc/weixin_zy HTTP/1.0" 200 734 0.0047
 172.17.0.1 - - [07/Feb/2017:10:01:02 +0000] "GET /favicon.ico HTTP/1.0" 200 - 0.0087
+I, [2017-02-09T02:17:15.207528 #30]  INFO -- : unlinking existing socket=/home/NorthernHemisphere/ihakula-service/conf/shared/unicorn.sock
+I, [2017-02-09T02:17:15.210908 #30]  INFO -- : listening on addr=/home/NorthernHemisphere/ihakula-service/conf/shared/unicorn.sock fd=12
+I, [2017-02-09T02:17:15.211554 #30]  INFO -- : worker=0 spawning...
+I, [2017-02-09T02:17:15.212896 #30]  INFO -- : worker=1 spawning...
+I, [2017-02-09T02:17:15.214099 #30]  INFO -- : master process ready
+I, [2017-02-09T02:17:15.214700 #36]  INFO -- : worker=1 spawned pid=36
+I, [2017-02-09T02:17:15.215253 #36]  INFO -- : Refreshing Gem list
+I, [2017-02-09T02:17:15.215490 #33]  INFO -- : worker=0 spawned pid=33
+I, [2017-02-09T02:17:15.220563 #33]  INFO -- : Refreshing Gem list
+I, [2017-02-09T02:18:37.503686 #36]  INFO -- : worker=1 ready
+I, [2017-02-09T02:18:38.169335 #33]  INFO -- : worker=0 ready
+172.17.0.1 - - [09/Feb/2017:02:18:39 +0000] "GET / HTTP/1.0" 200 - 1.6925
+172.17.0.1 - - [09/Feb/2017:02:18:39 +0000] "GET /favicon.ico HTTP/1.0" 200 - 0.0095
+172.17.0.1 - - [09/Feb/2017:02:18:41 +0000] "GET /swagger_doc HTTP/1.0" 200 633 2.3326
+172.17.0.1 - - [09/Feb/2017:02:18:41 +0000] "GET /swagger_doc/accounts HTTP/1.0" 200 598 0.0030
+172.17.0.1 - - [09/Feb/2017:02:18:41 +0000] "GET /swagger_doc/user HTTP/1.0" 200 2962 0.0163
+172.17.0.1 - - [09/Feb/2017:02:18:41 +0000] "GET /swagger_doc/fund HTTP/1.0" 200 2536 0.0125
+172.17.0.1 - - [09/Feb/2017:02:18:42 +0000] "GET /swagger_doc/joke HTTP/1.0" 200 854 0.0122
+172.17.0.1 - - [09/Feb/2017:02:18:42 +0000] "GET /swagger_doc/wordpress HTTP/1.0" 200 3520 0.0087
+172.17.0.1 - - [09/Feb/2017:02:18:42 +0000] "GET /swagger_doc/tool HTTP/1.0" 200 481 0.0058
+172.17.0.1 - - [09/Feb/2017:02:18:42 +0000] "GET /swagger_doc/weixin HTTP/1.0" 200 717 0.0062
+172.17.0.1 - - [09/Feb/2017:02:18:42 +0000] "GET /swagger_doc/weixin_zy HTTP/1.0" 200 734 0.0053
+172.17.0.1 - - [09/Feb/2017:02:18:42 +0000] "GET /swagger_doc/order HTTP/1.0" 200 14288 0.8905
+172.17.0.1 - - [09/Feb/2017:02:18:53 +0000] "GET /user/get-contact?user_id=1 HTTP/1.0" 200 162 0.8519

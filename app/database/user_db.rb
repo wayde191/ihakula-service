@@ -8,7 +8,7 @@ end
 
 UserDatabaseConnection.establish_connection(
     adapter:  'mysql2',
-    host:     'db',
+    host:     ENV['DB_PORT_3306_TCP_ADDR'],
     database: 'ihakula_sso',
     username: 'root',
     password: 'Wayde191!'

@@ -8,7 +8,7 @@ end
 
 FundDatabaseConnection.establish_connection(
     adapter:  'mysql2',
-    host:     'localhost',
+    host:     ENV['DB_PORT_3306_TCP_ADDR'],
     database: 'ihakula_fund',
     username: 'root',
     password: 'Wayde191!'
