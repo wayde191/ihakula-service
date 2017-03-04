@@ -7,6 +7,7 @@ require_relative '../../app/api/validators/not_empty'
 require_relative '../../app/exceptions/ihakula_service_error'
 
 require_relative '../../app/api/models/contact'
+require_relative '../../app/api/models/wx_user'
 
 include StatusCodes
 
@@ -26,6 +27,26 @@ module IHakula
 
       desc 'Operations on iHakula User'
       resource :user do
+
+        desc 'Get token for wechat little program', is_array: false
+        params do
+          requires :all, except: [], using: Models::Wx_user.documentation
+        end
+        post '/get-wx-token', http_codes: [
+            [OK, OK_MESSAGE],
+            [MALFORMED_REQUEST, MALFORMED_REQUEST_DESCRIPTION],
+            [FAILURE, SERVER_ERROR]
+        ] do
+          begin
+            user_store.get_wx_token params
+          rescue IhakulaServiceError => ex
+            status FAILURE
+            {error:SERVER_ERROR, message:ex.message}
+          end
+        end
+
+
+
 
         desc 'Get all user contacts', is_array: true
         params do
