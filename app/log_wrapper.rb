@@ -22,7 +22,7 @@ class LogWrapper
   end
 
   def log_info(message)
-    @logger.info("Stripe Logs: #{message}")
+    @logger.info("Debug Logs: #{message}")
   end
 
 end
