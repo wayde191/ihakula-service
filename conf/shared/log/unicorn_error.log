@@ -1061,3 +1061,53 @@ I, [2017-03-07T08:01:22.413330 #785]  INFO -- : worker=0 ready
 172.17.0.1 - - [07/Mar/2017:08:01:31 +0000] "POST /user/get-wx-token HTTP/1.0" 201 72 8.9394
 172.17.0.1 - - [07/Mar/2017:08:04:01 +0000] "POST /user/get-wx-token HTTP/1.0" 500 48 9.1084
 172.17.0.1 - - [07/Mar/2017:08:56:09 +0000] "POST /user/get-wx-token HTTP/1.0" 500 48 0.2726
+I, [2017-03-07T09:17:07.678259 #800]  INFO -- : unlinking existing socket=/home/NorthernHemisphere/ihakula-service/conf/shared/unicorn.sock
+I, [2017-03-07T09:17:07.681302 #800]  INFO -- : listening on addr=/home/NorthernHemisphere/ihakula-service/conf/shared/unicorn.sock fd=12
+I, [2017-03-07T09:17:07.682022 #800]  INFO -- : worker=0 spawning...
+I, [2017-03-07T09:17:07.683276 #800]  INFO -- : worker=1 spawning...
+I, [2017-03-07T09:17:07.684311 #803]  INFO -- : worker=0 spawned pid=803
+I, [2017-03-07T09:17:07.684881 #803]  INFO -- : Refreshing Gem list
+I, [2017-03-07T09:17:07.684847 #800]  INFO -- : master process ready
+I, [2017-03-07T09:17:07.686761 #806]  INFO -- : worker=1 spawned pid=806
+I, [2017-03-07T09:17:07.687403 #806]  INFO -- : Refreshing Gem list
+I, [2017-03-07T09:18:15.809276 #803]  INFO -- : worker=0 ready
+I, [2017-03-07T09:18:15.809869 #806]  INFO -- : worker=1 ready
+172.17.0.1 - - [07/Mar/2017:09:18:42 +0000] "POST /user/get-wx-token HTTP/1.0" 201 341 8.1309
+D, [2017-03-07T09:31:10.840279 #800] DEBUG -- : waiting 16.0s after suspend/hibernation
+D, [2017-03-07T09:32:44.421552 #800] DEBUG -- : waiting 16.0s after suspend/hibernation
+D, [2017-03-07T09:36:37.345987 #800] DEBUG -- : waiting 16.0s after suspend/hibernation
+E, [2017-03-07T10:33:30.347200 #800] ERROR -- : worker=0 PID:803 timeout (32s > 30s), killing
+E, [2017-03-07T10:33:30.366577 #800] ERROR -- : reaped #<Process::Status: pid 803 SIGKILL (signal 9)> worker=0
+I, [2017-03-07T10:33:30.367533 #800]  INFO -- : worker=0 spawning...
+I, [2017-03-07T10:33:30.372614 #814]  INFO -- : worker=0 spawned pid=814
+I, [2017-03-07T10:33:30.373755 #814]  INFO -- : Refreshing Gem list
+D, [2017-03-07T11:33:28.288463 #800] DEBUG -- : waiting 16.0s after suspend/hibernation
+I, [2017-03-07T11:34:17.884057 #814]  INFO -- : worker=0 ready
+D, [2017-03-07T12:13:28.683361 #800] DEBUG -- : waiting 16.0s after suspend/hibernation
+D, [2017-03-07T12:21:44.490017 #800] DEBUG -- : waiting 16.0s after suspend/hibernation
+D, [2017-03-07T12:32:35.659366 #800] DEBUG -- : waiting 16.0s after suspend/hibernation
+172.17.0.1 - - [07/Mar/2017:13:46:20 +0000] "GET / HTTP/1.0" 200 - 1.7110
+172.17.0.1 - - [07/Mar/2017:13:46:23 +0000] "GET /swagger_doc HTTP/1.0" 200 633 2.5711
+172.17.0.1 - - [07/Mar/2017:13:46:23 +0000] "GET /swagger_doc/accounts HTTP/1.0" 200 598 0.0058
+172.17.0.1 - - [07/Mar/2017:13:46:23 +0000] "GET /swagger_doc/fund HTTP/1.0" 200 2536 0.0250
+172.17.0.1 - - [07/Mar/2017:13:46:23 +0000] "GET /swagger_doc/order HTTP/1.0" 200 14288 0.0495
+172.17.0.1 - - [07/Mar/2017:13:46:23 +0000] "GET /swagger_doc/tool HTTP/1.0" 200 481 0.0134
+172.17.0.1 - - [07/Mar/2017:13:46:23 +0000] "GET /swagger_doc/joke HTTP/1.0" 200 854 0.0118
+172.17.0.1 - - [07/Mar/2017:13:46:23 +0000] "GET /swagger_doc/wordpress HTTP/1.0" 200 3520 0.0270
+172.17.0.1 - - [07/Mar/2017:13:46:23 +0000] "GET /swagger_doc/weixin HTTP/1.0" 200 717 0.0151
+172.17.0.1 - - [07/Mar/2017:13:46:23 +0000] "GET /swagger_doc/weixin_zy HTTP/1.0" 200 734 0.0191
+172.17.0.1 - - [07/Mar/2017:13:46:24 +0000] "GET /swagger_doc/user HTTP/1.0" 200 4092 1.0972
+D, [2017-03-07T14:36:06.593132 #800] DEBUG -- : waiting 16.0s after suspend/hibernation
+D, [2017-03-07T14:48:05.136734 #800] DEBUG -- : waiting 16.0s after suspend/hibernation
+D, [2017-03-07T14:53:06.547121 #800] DEBUG -- : waiting 16.0s after suspend/hibernation
+172.17.0.1 - - [07/Mar/2017:14:59:58 +0000] "GET /swagger_doc HTTP/1.0" 200 633 0.0452
+172.17.0.1 - - [07/Mar/2017:14:59:58 +0000] "GET /swagger_doc/wordpress HTTP/1.0" 200 3520 0.0241
+172.17.0.1 - - [07/Mar/2017:14:59:58 +0000] "GET /swagger_doc/tool HTTP/1.0" 200 481 0.0146
+172.17.0.1 - - [07/Mar/2017:14:59:58 +0000] "GET /swagger_doc/accounts HTTP/1.0" 200 598 0.0586
+172.17.0.1 - - [07/Mar/2017:14:59:58 +0000] "GET /swagger_doc/fund HTTP/1.0" 200 2536 0.0204
+172.17.0.1 - - [07/Mar/2017:14:59:58 +0000] "GET /swagger_doc/user HTTP/1.0" 200 4092 0.0388
+172.17.0.1 - - [07/Mar/2017:14:59:58 +0000] "GET /swagger_doc/weixin HTTP/1.0" 200 717 0.0111
+172.17.0.1 - - [07/Mar/2017:14:59:58 +0000] "GET /swagger_doc/weixin_zy HTTP/1.0" 200 734 0.0189
+172.17.0.1 - - [07/Mar/2017:14:59:58 +0000] "GET /swagger_doc/order HTTP/1.0" 200 14288 0.0716
+172.17.0.1 - - [07/Mar/2017:14:59:58 +0000] "GET /swagger_doc/joke HTTP/1.0" 200 854 0.0127
+D, [2017-03-07T15:37:45.844204 #800] DEBUG -- : waiting 16.0s after suspend/hibernation

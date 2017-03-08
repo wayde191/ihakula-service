@@ -2,6 +2,9 @@ require_relative '../../app/database/user_db'
 require_relative '../../app/exceptions/ihakula_service_error'
 require_relative '../../app/stores/base/wx_biz_data_crypt'
 
+require 'base64'
+
+
 class UserStore
 
   def initialize(app_settings, http_client)
@@ -58,21 +61,58 @@ class UserStore
       wx_session = get_wx_key(paras[:code], paras[:app_id])
       return wx_session unless wx_session['errcode'].nil?
 
-      # use session_key and open_id create token
-      # if user exist, update user info
-      # if user not exist, insert user info
-      @logger.log_info('===========')
-      @logger.log_info(wx_session['session_key'])
-      @logger.log_info(wx_session['openid'])
       decrypted_data = decrypt(paras[:app_id], wx_session['session_key'], paras[:iv], paras[:encrypted_data])
-      decrypted_data
-    rescue StandardError, IhakulaServiceError => ex
-      @logger.log_info('EXCEPTION')
+      user_id = update_user_info decrypted_data
+      get_token(wx_session['session_key'], wx_session['openid'], user_id, paras[:app_id])
+    rescue StandardError => ex
       raise IhakulaServiceError, ex.message
     end
   end
 
   private
+  def get_token(session_key, open_id, user_id, app_id)
+    token = Base64.strict_encode64("#{session_key}#{user_id}")
+    Wx_token.create(
+         token: token,
+         open_id: open_id,
+         session_key: session_key,
+         wx_app_id: app_id,
+         wx_user_id: user_id,
+         valid_time: 30.days.from_now
+    )
+    token
+  end
+
+  def update_user_info(user_info)
+    union_id = Base64.strict_encode64("#{user_info['openId']}#{user_info['watermark']['appid']}")
+    user = Wx_user.find_by(union_id: union_id)
+
+    if user.nil? then
+      Wx_user.create(
+          union_id: union_id,
+          nickName: user_info['nickName'],
+          gender: user_info['gender'],
+          city: user_info['city'],
+          province: user_info['province'],
+          country: user_info['country'],
+          avatarUrl: user_info['avatarUrl'],
+          create_time: get_current_time,
+          activity_time: get_current_time
+      )
+    else
+      user[:nickName] = user_info['nickName']
+      user[:gender] = user_info['gender']
+      user[:city] = user_info['city']
+      user[:province] = user_info['province']
+      user[:country] = user_info['country']
+      user[:avatarUrl] = user_info['avatarUrl']
+      user[:activity_time] = get_current_time
+      user.save
+    end
+
+    union_id
+  end
+
   def decrypt(app_id, session_key, iv, encrypted_data)
     wx_crypt = WXBizDataCrypt.new(app_id, session_key)
     wx_crypt.decrypt(encrypted_data, iv)
@@ -99,5 +139,9 @@ class UserStore
 
   def get_current_time
     Time.now.strftime('%Y-%m-%d %H:%M:%S')
+  end
+
+  def get_empty_time
+    '0000-00-00 00:00:00'
   end
 end

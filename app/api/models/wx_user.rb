@@ -21,18 +21,6 @@ module IHakula
                       desc: 'The Wechat login code'
                   }
 
-        expose :raw_data, documentation: {
-                      type: String,
-                      not_empty: true,
-                      desc: 'Wechat userinfo rawData'
-                  }
-
-        expose :signature, documentation: {
-                        type: String,
-                        not_empty: true,
-                        desc: 'Wechat userinfo signature'
-                    }
-
         expose :encrypted_data, documentation: {
                         type: String,
                         not_empty: true,
