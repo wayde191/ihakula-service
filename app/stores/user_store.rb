@@ -62,23 +62,25 @@ class UserStore
       return wx_session unless wx_session['errcode'].nil?
 
       decrypted_data = decrypt(paras[:app_id], wx_session['session_key'], paras[:iv], paras[:encrypted_data])
-      user_id = update_user_info decrypted_data
-      get_token(wx_session['session_key'], wx_session['openid'], user_id, paras[:app_id])
+      union_id = update_user_info decrypted_data
+      {
+          token: get_token(wx_session['session_key'], wx_session['openid'], union_id, paras[:app_id])
+      }
     rescue StandardError => ex
       raise IhakulaServiceError, ex.message
     end
   end
 
   private
-  def get_token(session_key, open_id, user_id, app_id)
-    token = Base64.strict_encode64("#{session_key}#{user_id}")
+  def get_token(session_key, open_id, union_id, app_id)
+    token = Base64.strict_encode64("#{session_key}#{union_id}")
     Wx_token.create(
          token: token,
          open_id: open_id,
          session_key: session_key,
+         valid_time: 30.days.from_now,
          wx_app_id: app_id,
-         wx_user_id: user_id,
-         valid_time: 30.days.from_now
+         wx_user_id: union_id
     )
     token
   end
