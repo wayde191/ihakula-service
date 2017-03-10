@@ -62,9 +62,9 @@ class UserStore
       return wx_session unless wx_session['errcode'].nil?
 
       decrypted_data = decrypt(paras[:app_id], wx_session['session_key'], paras[:iv], paras[:encrypted_data])
-      union_id = update_user_info decrypted_data
+      user_id = update_user_info decrypted_data
       {
-          token: get_token(wx_session['session_key'], wx_session['openid'], union_id, paras[:app_id])
+          token: get_token(wx_session['session_key'], wx_session['openid'], user_id, paras[:app_id])
       }
     rescue StandardError => ex
       raise IhakulaServiceError, ex.message
@@ -72,15 +72,15 @@ class UserStore
   end
 
   private
-  def get_token(session_key, open_id, union_id, app_id)
-    token = Base64.strict_encode64("#{session_key}#{union_id}")
+  def get_token(session_key, open_id, user_id, app_id)
+    token = Base64.strict_encode64("#{session_key}#{user_id}")
     Wx_token.create(
          token: token,
          open_id: open_id,
          session_key: session_key,
          valid_time: 30.days.from_now,
          wx_app_id: app_id,
-         wx_user_id: union_id
+         wx_user_id: user_id
     )
     token
   end
@@ -90,7 +90,7 @@ class UserStore
     user = Wx_user.find_by(union_id: union_id)
 
     if user.nil? then
-      Wx_user.create(
+      user = Wx_user.create(
           union_id: union_id,
           nickName: user_info['nickName'],
           gender: user_info['gender'],
@@ -99,7 +99,8 @@ class UserStore
           country: user_info['country'],
           avatarUrl: user_info['avatarUrl'],
           create_time: get_current_time,
-          activity_time: get_current_time
+          activity_time: get_current_time,
+          role: 0
       )
     else
       user[:nickName] = user_info['nickName']
@@ -112,7 +113,7 @@ class UserStore
       user.save
     end
 
-    union_id
+    user[:id]
   end
 
   def decrypt(app_id, session_key, iv, encrypted_data)

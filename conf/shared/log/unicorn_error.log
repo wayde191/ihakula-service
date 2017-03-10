@@ -1362,3 +1362,9 @@ I, [2017-03-07T18:10:44.271775 #941]  INFO -- : worker=1 ready
 172.17.0.1 - - [07/Mar/2017:18:15:42 +0000] "POST /user/get-wx-token HTTP/1.0" 201 132 8.6535
 172.17.0.1 - - [07/Mar/2017:18:16:34 +0000] "POST /user/get-wx-token HTTP/1.0" 201 132 0.3545
 D, [2017-03-08T07:03:15.882828 #935] DEBUG -- : waiting 16.0s after suspend/hibernation
+D, [2017-03-08T09:05:32.842545 #935] DEBUG -- : waiting 16.0s after suspend/hibernation
+D, [2017-03-08T09:10:15.450807 #935] DEBUG -- : waiting 16.0s after suspend/hibernation
+D, [2017-03-08T09:11:45.889028 #935] DEBUG -- : waiting 16.0s after suspend/hibernation
+D, [2017-03-08T09:13:13.770674 #935] DEBUG -- : waiting 16.0s after suspend/hibernation
+D, [2017-03-08T11:02:09.858985 #935] DEBUG -- : waiting 16.0s after suspend/hibernation
+D, [2017-03-08T12:38:50.340266 #935] DEBUG -- : waiting 16.0s after suspend/hibernation

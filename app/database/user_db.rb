@@ -44,3 +44,23 @@ end
 class Wx_token < WeChatDatabaseConnection
   self.table_name = 'wx_token'
 end
+
+class Ih_garden < WeChatDatabaseConnection
+  self.table_name = 'ih_garden'
+end
+
+class Ih_house < WeChatDatabaseConnection
+  self.table_name = 'ih_house'
+end
+
+class Ih_leasehold < WeChatDatabaseConnection
+  self.table_name = 'ih_leasehold'
+end
+
+class Ih_facility < WeChatDatabaseConnection
+  self.table_name = 'ih_facility'
+end
+
+class Ih_facility_item < WeChatDatabaseConnection
+  self.table_name = 'ih_facility_item'
+end
