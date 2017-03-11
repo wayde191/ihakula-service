@@ -1,9 +1,10 @@
 require_relative '../../app/database/user_db'
 require_relative '../../app/exceptions/ihakula_service_error'
 require_relative '../../app/stores/base/wx_biz_data_crypt'
+require_relative '../../app/api/status_codes'
 
 require 'base64'
-
+include StatusCodes
 
 class UserStore
 
@@ -68,8 +69,26 @@ class UserStore
     house_id
   end
 
-  def rent(token, paras)
+  def rent(token_record, invite_code, house_id)
+    begin
+      house = Ih_house.find_by(id: house_id)
+      error! 'invite code error', INVITE_CODE_ERROR if house['invite_coe'] != invite_code
+      error! 'house not available', HOUSE_NOT_AVAILABLE if house['status'] != HOUSE_AVAILABLE
 
+      Ih_leasehold.create(
+          house_id: house['id'],
+          host_id: house['host_id'],
+          guest_id: token_record['user_id'],
+          start_time: get_current_time,
+          end_time: 365.days.from_now,
+      )
+
+      house[:status] = HOUSE_NOT_AVAILABLE
+      house.save
+
+    rescue StandardError => ex
+      raise IhakulaServiceError, ex.message
+    end
   end
 
   def get_wx_house

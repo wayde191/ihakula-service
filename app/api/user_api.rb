@@ -47,7 +47,7 @@ module IHakula
             requires :invite_code, type: String, not_empty: true, desc: 'Rent house invite code'
           end
           post '/rent', http_codes: [[OK, OK_MESSAGE], [FAILURE, SERVER_ERROR]] do
-            user_store.rent(params)
+            user_store.rent(token_record, invite_code, :house_id)
           end
 
           desc 'get house detail info'
