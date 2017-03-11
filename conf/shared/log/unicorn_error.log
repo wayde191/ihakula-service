@@ -1368,3 +1368,317 @@ D, [2017-03-08T09:11:45.889028 #935] DEBUG -- : waiting 16.0s after suspend/hibe
 D, [2017-03-08T09:13:13.770674 #935] DEBUG -- : waiting 16.0s after suspend/hibernation
 D, [2017-03-08T11:02:09.858985 #935] DEBUG -- : waiting 16.0s after suspend/hibernation
 D, [2017-03-08T12:38:50.340266 #935] DEBUG -- : waiting 16.0s after suspend/hibernation
+I, [2017-03-11T06:55:48.351147 #39]  INFO -- : unlinking existing socket=/home/NorthernHemisphere/ihakula-service/conf/shared/unicorn.sock
+I, [2017-03-11T06:55:48.357070 #39]  INFO -- : listening on addr=/home/NorthernHemisphere/ihakula-service/conf/shared/unicorn.sock fd=12
+I, [2017-03-11T06:55:48.357843 #39]  INFO -- : worker=0 spawning...
+I, [2017-03-11T06:55:48.359290 #39]  INFO -- : worker=1 spawning...
+I, [2017-03-11T06:55:48.361385 #39]  INFO -- : master process ready
+I, [2017-03-11T06:55:48.362210 #45]  INFO -- : worker=1 spawned pid=45
+I, [2017-03-11T06:55:48.363236 #45]  INFO -- : Refreshing Gem list
+I, [2017-03-11T06:55:48.363403 #42]  INFO -- : worker=0 spawned pid=42
+I, [2017-03-11T06:55:48.364590 #42]  INFO -- : Refreshing Gem list
+I, [2017-03-11T06:57:10.026707 #45]  INFO -- : worker=1 ready
+I, [2017-03-11T06:57:10.028828 #42]  INFO -- : worker=0 ready
+172.17.0.1 - - [11/Mar/2017:06:57:11 +0000] "GET / HTTP/1.0" 200 - 1.5503
+172.17.0.1 - - [11/Mar/2017:06:57:11 +0000] "GET /favicon.ico HTTP/1.0" 200 - 0.0074
+172.17.0.1 - - [11/Mar/2017:06:57:14 +0000] "GET /swagger_doc HTTP/1.0" 200 633 2.5453
+172.17.0.1 - - [11/Mar/2017:06:57:14 +0000] "GET /swagger_doc/order HTTP/1.0" 200 14288 0.0093
+172.17.0.1 - - [11/Mar/2017:06:57:14 +0000] "GET /swagger_doc/weixin HTTP/1.0" 200 717 0.0050
+172.17.0.1 - - [11/Mar/2017:06:57:14 +0000] "GET /swagger_doc/tool HTTP/1.0" 200 481 0.0035
+172.17.0.1 - - [11/Mar/2017:06:57:14 +0000] "GET /swagger_doc/user HTTP/1.0" 200 5322 0.0165
+172.17.0.1 - - [11/Mar/2017:06:57:14 +0000] "GET /swagger_doc/joke HTTP/1.0" 200 854 0.0067
+172.17.0.1 - - [11/Mar/2017:06:57:14 +0000] "GET /swagger_doc/fund HTTP/1.0" 200 2536 0.0087
+172.17.0.1 - - [11/Mar/2017:06:57:14 +0000] "GET /swagger_doc/wordpress HTTP/1.0" 200 3520 0.0090
+172.17.0.1 - - [11/Mar/2017:06:57:14 +0000] "GET /swagger_doc/weixin_zy HTTP/1.0" 200 734 0.0064
+172.17.0.1 - - [11/Mar/2017:06:57:15 +0000] "GET /swagger_doc/accounts HTTP/1.0" 200 598 1.0453
+NoMethodError: undefined method `sub!' for nil:NilClass
+	/home/NorthernHemisphere/ihakula-service/app/api/user_api.rb:38:in `block (3 levels) in <class:UserAPI>'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/endpoint.rb:293:in `instance_eval'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/endpoint.rb:293:in `block in run_filters'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/endpoint.rb:292:in `each'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/endpoint.rb:292:in `run_filters'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/endpoint.rb:200:in `run'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/endpoint.rb:171:in `block in call!'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/middleware/base.rb:24:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/middleware/base.rb:24:in `call!'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/middleware/base.rb:18:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/middleware/base.rb:24:in `call!'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/middleware/base.rb:18:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/middleware/error.rb:27:in `block in call!'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/middleware/error.rb:26:in `catch'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/middleware/error.rb:26:in `call!'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/middleware/base.rb:18:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/head.rb:13:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/builder.rb:153:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/endpoint.rb:172:in `call!'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/endpoint.rb:160:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-mount-0.8.3/lib/rack/mount/route_set.rb:152:in `block in call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-mount-0.8.3/lib/rack/mount/code_generation.rb:96:in `block in recognize'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-mount-0.8.3/lib/rack/mount/code_generation.rb:68:in `optimized_each'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-mount-0.8.3/lib/rack/mount/code_generation.rb:95:in `recognize'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-mount-0.8.3/lib/rack/mount/route_set.rb:141:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/api.rb:128:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/api.rb:43:in `call!'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/api.rb:39:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/cascade.rb:33:in `block in call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/cascade.rb:24:in `each'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/cascade.rb:24:in `call'
+	/home/NorthernHemisphere/ihakula-service/app/transaction_logger.rb:18:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/static.rb:124:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-cors-0.4.0/lib/rack/cors.rb:80:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/lint.rb:49:in `_call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/lint.rb:37:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/showexceptions.rb:24:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/commonlogger.rb:33:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/chunked.rb:54:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/content_length.rb:15:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/lib/unicorn/http_server.rb:576:in `process_client'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/lib/unicorn/http_server.rb:670:in `worker_loop'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/lib/unicorn/http_server.rb:525:in `spawn_missing_workers'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/lib/unicorn/http_server.rb:140:in `start'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/bin/unicorn:126:in `<top (required)>'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/bin/unicorn:23:in `load'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/bin/unicorn:23:in `<top (required)>'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/lib/bundler/cli/exec.rb:74:in `load'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/lib/bundler/cli/exec.rb:74:in `kernel_load'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/lib/bundler/cli/exec.rb:27:in `run'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/lib/bundler/cli.rb:335:in `exec'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/lib/bundler/vendor/thor/lib/thor/command.rb:27:in `run'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/lib/bundler/vendor/thor/lib/thor/invocation.rb:126:in `invoke_command'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/lib/bundler/vendor/thor/lib/thor.rb:359:in `dispatch'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/lib/bundler/cli.rb:20:in `dispatch'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/lib/bundler/vendor/thor/lib/thor/base.rb:440:in `start'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/lib/bundler/cli.rb:11:in `start'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/exe/bundle:32:in `block in <top (required)>'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/lib/bundler/friendly_errors.rb:121:in `with_friendly_errors'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/exe/bundle:24:in `<top (required)>'
+	/usr/local/bin/bundle:23:in `load'
+	/usr/local/bin/bundle:23:in `<main>'
+172.17.0.1 - - [11/Mar/2017:07:00:40 +0000] "POST /user/123/rent HTTP/1.0" 500 7254 0.1596
+172.17.0.1 - - [11/Mar/2017:07:01:11 +0000] "GET / HTTP/1.0" 200 - 0.0078
+172.17.0.1 - - [11/Mar/2017:07:01:11 +0000] "GET /swagger_doc HTTP/1.0" 200 633 0.0042
+172.17.0.1 - - [11/Mar/2017:07:01:11 +0000] "GET /swagger_doc/accounts HTTP/1.0" 200 598 0.0121
+172.17.0.1 - - [11/Mar/2017:07:01:11 +0000] "GET /swagger_doc/fund HTTP/1.0" 200 2536 0.0056
+172.17.0.1 - - [11/Mar/2017:07:01:11 +0000] "GET /swagger_doc/tool HTTP/1.0" 200 481 0.0117
+172.17.0.1 - - [11/Mar/2017:07:01:11 +0000] "GET /swagger_doc/order HTTP/1.0" 200 14288 0.0528
+172.17.0.1 - - [11/Mar/2017:07:01:11 +0000] "GET /swagger_doc/wordpress HTTP/1.0" 200 3520 0.0080
+172.17.0.1 - - [11/Mar/2017:07:01:11 +0000] "GET /swagger_doc/user HTTP/1.0" 200 5322 0.0145
+172.17.0.1 - - [11/Mar/2017:07:01:11 +0000] "GET /swagger_doc/joke HTTP/1.0" 200 854 0.0068
+172.17.0.1 - - [11/Mar/2017:07:01:11 +0000] "GET /swagger_doc/weixin HTTP/1.0" 200 717 0.0065
+172.17.0.1 - - [11/Mar/2017:07:01:11 +0000] "GET /swagger_doc/weixin_zy HTTP/1.0" 200 734 0.0097
+172.17.0.1 - - [11/Mar/2017:07:01:11 +0000] "GET /favicon.ico HTTP/1.0" 200 - 0.0160
+NoMethodError: undefined method `sub!' for nil:NilClass
+	/home/NorthernHemisphere/ihakula-service/app/api/user_api.rb:38:in `block (3 levels) in <class:UserAPI>'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/endpoint.rb:293:in `instance_eval'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/endpoint.rb:293:in `block in run_filters'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/endpoint.rb:292:in `each'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/endpoint.rb:292:in `run_filters'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/endpoint.rb:200:in `run'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/endpoint.rb:171:in `block in call!'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/middleware/base.rb:24:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/middleware/base.rb:24:in `call!'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/middleware/base.rb:18:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/middleware/base.rb:24:in `call!'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/middleware/base.rb:18:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/middleware/error.rb:27:in `block in call!'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/middleware/error.rb:26:in `catch'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/middleware/error.rb:26:in `call!'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/middleware/base.rb:18:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/head.rb:13:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/builder.rb:153:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/endpoint.rb:172:in `call!'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/endpoint.rb:160:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-mount-0.8.3/lib/rack/mount/route_set.rb:152:in `block in call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-mount-0.8.3/lib/rack/mount/code_generation.rb:96:in `block in recognize'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-mount-0.8.3/lib/rack/mount/code_generation.rb:68:in `optimized_each'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-mount-0.8.3/lib/rack/mount/code_generation.rb:95:in `recognize'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-mount-0.8.3/lib/rack/mount/route_set.rb:141:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/api.rb:128:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/api.rb:43:in `call!'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/api.rb:39:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/cascade.rb:33:in `block in call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/cascade.rb:24:in `each'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/cascade.rb:24:in `call'
+	/home/NorthernHemisphere/ihakula-service/app/transaction_logger.rb:18:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/static.rb:124:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-cors-0.4.0/lib/rack/cors.rb:80:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/lint.rb:49:in `_call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/lint.rb:37:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/showexceptions.rb:24:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/commonlogger.rb:33:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/chunked.rb:54:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/content_length.rb:15:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/lib/unicorn/http_server.rb:576:in `process_client'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/lib/unicorn/http_server.rb:670:in `worker_loop'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/lib/unicorn/http_server.rb:525:in `spawn_missing_workers'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/lib/unicorn/http_server.rb:140:in `start'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/bin/unicorn:126:in `<top (required)>'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/bin/unicorn:23:in `load'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/bin/unicorn:23:in `<top (required)>'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/lib/bundler/cli/exec.rb:74:in `load'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/lib/bundler/cli/exec.rb:74:in `kernel_load'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/lib/bundler/cli/exec.rb:27:in `run'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/lib/bundler/cli.rb:335:in `exec'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/lib/bundler/vendor/thor/lib/thor/command.rb:27:in `run'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/lib/bundler/vendor/thor/lib/thor/invocation.rb:126:in `invoke_command'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/lib/bundler/vendor/thor/lib/thor.rb:359:in `dispatch'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/lib/bundler/cli.rb:20:in `dispatch'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/lib/bundler/vendor/thor/lib/thor/base.rb:440:in `start'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/lib/bundler/cli.rb:11:in `start'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/exe/bundle:32:in `block in <top (required)>'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/lib/bundler/friendly_errors.rb:121:in `with_friendly_errors'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/exe/bundle:24:in `<top (required)>'
+	/usr/local/bin/bundle:23:in `load'
+	/usr/local/bin/bundle:23:in `<main>'
+172.17.0.1 - - [11/Mar/2017:07:01:15 +0000] "POST /user/11/rent HTTP/1.0" 500 7254 0.1425
+I, [2017-03-11T07:01:49.214750 #87]  INFO -- : unlinking existing socket=/home/NorthernHemisphere/ihakula-service/conf/shared/unicorn.sock
+I, [2017-03-11T07:01:49.217115 #87]  INFO -- : listening on addr=/home/NorthernHemisphere/ihakula-service/conf/shared/unicorn.sock fd=12
+I, [2017-03-11T07:01:49.217623 #87]  INFO -- : worker=0 spawning...
+I, [2017-03-11T07:01:49.218768 #87]  INFO -- : worker=1 spawning...
+I, [2017-03-11T07:01:49.219304 #90]  INFO -- : worker=0 spawned pid=90
+I, [2017-03-11T07:01:49.219901 #90]  INFO -- : Refreshing Gem list
+I, [2017-03-11T07:01:49.220447 #87]  INFO -- : master process ready
+I, [2017-03-11T07:01:49.221132 #93]  INFO -- : worker=1 spawned pid=93
+I, [2017-03-11T07:01:49.222659 #93]  INFO -- : Refreshing Gem list
+I, [2017-03-11T07:03:06.014854 #90]  INFO -- : worker=0 ready
+I, [2017-03-11T07:03:06.015690 #93]  INFO -- : worker=1 ready
+NoMethodError: undefined method `sub!' for nil:NilClass
+	/home/NorthernHemisphere/ihakula-service/app/api/user_api.rb:38:in `block (3 levels) in <class:UserAPI>'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/endpoint.rb:293:in `instance_eval'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/endpoint.rb:293:in `block in run_filters'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/endpoint.rb:292:in `each'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/endpoint.rb:292:in `run_filters'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/endpoint.rb:200:in `run'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/endpoint.rb:171:in `block in call!'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/middleware/base.rb:24:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/middleware/base.rb:24:in `call!'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/middleware/base.rb:18:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/middleware/base.rb:24:in `call!'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/middleware/base.rb:18:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/middleware/error.rb:27:in `block in call!'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/middleware/error.rb:26:in `catch'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/middleware/error.rb:26:in `call!'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/middleware/base.rb:18:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/head.rb:13:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/builder.rb:153:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/endpoint.rb:172:in `call!'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/endpoint.rb:160:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-mount-0.8.3/lib/rack/mount/route_set.rb:152:in `block in call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-mount-0.8.3/lib/rack/mount/code_generation.rb:96:in `block in recognize'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-mount-0.8.3/lib/rack/mount/code_generation.rb:68:in `optimized_each'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-mount-0.8.3/lib/rack/mount/code_generation.rb:95:in `recognize'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-mount-0.8.3/lib/rack/mount/route_set.rb:141:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/api.rb:128:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/api.rb:43:in `call!'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/api.rb:39:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/cascade.rb:33:in `block in call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/cascade.rb:24:in `each'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/cascade.rb:24:in `call'
+	/home/NorthernHemisphere/ihakula-service/app/transaction_logger.rb:18:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/static.rb:124:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-cors-0.4.0/lib/rack/cors.rb:80:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/lint.rb:49:in `_call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/lint.rb:37:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/showexceptions.rb:24:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/commonlogger.rb:33:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/chunked.rb:54:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/content_length.rb:15:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/lib/unicorn/http_server.rb:576:in `process_client'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/lib/unicorn/http_server.rb:670:in `worker_loop'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/lib/unicorn/http_server.rb:525:in `spawn_missing_workers'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/lib/unicorn/http_server.rb:140:in `start'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/bin/unicorn:126:in `<top (required)>'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/bin/unicorn:23:in `load'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/bin/unicorn:23:in `<top (required)>'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/lib/bundler/cli/exec.rb:74:in `load'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/lib/bundler/cli/exec.rb:74:in `kernel_load'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/lib/bundler/cli/exec.rb:27:in `run'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/lib/bundler/cli.rb:335:in `exec'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/lib/bundler/vendor/thor/lib/thor/command.rb:27:in `run'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/lib/bundler/vendor/thor/lib/thor/invocation.rb:126:in `invoke_command'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/lib/bundler/vendor/thor/lib/thor.rb:359:in `dispatch'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/lib/bundler/cli.rb:20:in `dispatch'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/lib/bundler/vendor/thor/lib/thor/base.rb:440:in `start'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/lib/bundler/cli.rb:11:in `start'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/exe/bundle:32:in `block in <top (required)>'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/lib/bundler/friendly_errors.rb:121:in `with_friendly_errors'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/exe/bundle:24:in `<top (required)>'
+	/usr/local/bin/bundle:23:in `load'
+	/usr/local/bin/bundle:23:in `<main>'
+172.17.0.1 - - [11/Mar/2017:07:03:08 +0000] "POST /user/11/rent HTTP/1.0" 500 7254 2.1155
+NoMethodError: undefined method `sub!' for nil:NilClass
+	/home/NorthernHemisphere/ihakula-service/app/api/user_api.rb:38:in `block (3 levels) in <class:UserAPI>'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/endpoint.rb:293:in `instance_eval'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/endpoint.rb:293:in `block in run_filters'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/endpoint.rb:292:in `each'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/endpoint.rb:292:in `run_filters'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/endpoint.rb:200:in `run'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/endpoint.rb:171:in `block in call!'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/middleware/base.rb:24:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/middleware/base.rb:24:in `call!'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/middleware/base.rb:18:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/middleware/base.rb:24:in `call!'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/middleware/base.rb:18:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/middleware/error.rb:27:in `block in call!'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/middleware/error.rb:26:in `catch'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/middleware/error.rb:26:in `call!'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/middleware/base.rb:18:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/head.rb:13:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/builder.rb:153:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/endpoint.rb:172:in `call!'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/endpoint.rb:160:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-mount-0.8.3/lib/rack/mount/route_set.rb:152:in `block in call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-mount-0.8.3/lib/rack/mount/code_generation.rb:96:in `block in recognize'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-mount-0.8.3/lib/rack/mount/code_generation.rb:68:in `optimized_each'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-mount-0.8.3/lib/rack/mount/code_generation.rb:95:in `recognize'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-mount-0.8.3/lib/rack/mount/route_set.rb:141:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/api.rb:128:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/api.rb:43:in `call!'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/grape-0.9.0/lib/grape/api.rb:39:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/cascade.rb:33:in `block in call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/cascade.rb:24:in `each'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/cascade.rb:24:in `call'
+	/home/NorthernHemisphere/ihakula-service/app/transaction_logger.rb:18:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/static.rb:124:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-cors-0.4.0/lib/rack/cors.rb:80:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/lint.rb:49:in `_call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/lint.rb:37:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/showexceptions.rb:24:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/commonlogger.rb:33:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/chunked.rb:54:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/rack-1.6.4/lib/rack/content_length.rb:15:in `call'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/lib/unicorn/http_server.rb:576:in `process_client'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/lib/unicorn/http_server.rb:670:in `worker_loop'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/lib/unicorn/http_server.rb:525:in `spawn_missing_workers'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/lib/unicorn/http_server.rb:140:in `start'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/gems/unicorn-4.8.3/bin/unicorn:126:in `<top (required)>'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/bin/unicorn:23:in `load'
+	/home/NorthernHemisphere/ihakula-service/vendor/bundle/ruby/2.1.0/bin/unicorn:23:in `<top (required)>'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/lib/bundler/cli/exec.rb:74:in `load'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/lib/bundler/cli/exec.rb:74:in `kernel_load'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/lib/bundler/cli/exec.rb:27:in `run'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/lib/bundler/cli.rb:335:in `exec'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/lib/bundler/vendor/thor/lib/thor/command.rb:27:in `run'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/lib/bundler/vendor/thor/lib/thor/invocation.rb:126:in `invoke_command'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/lib/bundler/vendor/thor/lib/thor.rb:359:in `dispatch'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/lib/bundler/cli.rb:20:in `dispatch'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/lib/bundler/vendor/thor/lib/thor/base.rb:440:in `start'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/lib/bundler/cli.rb:11:in `start'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/exe/bundle:32:in `block in <top (required)>'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/lib/bundler/friendly_errors.rb:121:in `with_friendly_errors'
+	/opt/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/bundler-1.14.3/exe/bundle:24:in `<top (required)>'
+	/usr/local/bin/bundle:23:in `load'
+	/usr/local/bin/bundle:23:in `<main>'
+172.17.0.1 - - [11/Mar/2017:07:03:20 +0000] "POST /user/11/rent HTTP/1.0" 500 7254 0.0053
+I, [2017-03-11T07:04:19.967332 #105]  INFO -- : unlinking existing socket=/home/NorthernHemisphere/ihakula-service/conf/shared/unicorn.sock
+I, [2017-03-11T07:04:19.968919 #105]  INFO -- : listening on addr=/home/NorthernHemisphere/ihakula-service/conf/shared/unicorn.sock fd=12
+I, [2017-03-11T07:04:19.969371 #105]  INFO -- : worker=0 spawning...
+I, [2017-03-11T07:04:19.970451 #105]  INFO -- : worker=1 spawning...
+I, [2017-03-11T07:04:19.970977 #108]  INFO -- : worker=0 spawned pid=108
+I, [2017-03-11T07:04:19.971866 #108]  INFO -- : Refreshing Gem list
+I, [2017-03-11T07:04:19.972248 #105]  INFO -- : master process ready
+I, [2017-03-11T07:04:19.972728 #111]  INFO -- : worker=1 spawned pid=111
+I, [2017-03-11T07:04:19.974079 #111]  INFO -- : Refreshing Gem list
+I, [2017-03-11T07:05:42.214283 #108]  INFO -- : worker=0 ready
+I, [2017-03-11T07:05:42.214743 #111]  INFO -- : worker=1 ready
+172.17.0.1 - - [11/Mar/2017:07:05:44 +0000] "POST /user/11/rent HTTP/1.0" 401 30 2.4306

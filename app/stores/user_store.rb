@@ -54,18 +54,39 @@ class UserStore
     end
   end
 
+  def check_token(token)
+    begin
+      Wx_token.find_by(token: token)
+    rescue StandardError => ex
+      raise IhakulaServiceError, ex.message
+    end
+  end
+
   # ==========================================================
   # Wechat little program
   def get_house_detail(house_id)
     house_id
   end
 
-  def rent(paras)
-    paras
+  def rent(token, paras)
+
   end
 
   def get_wx_house
-    []
+    begin
+      house_list = []
+      houses = Ih_house.all
+      houses.each do |house|
+        house_list << {
+            id: house['id'],
+            name: house['name'],
+            avatar: house['avatar']
+        }
+      end
+      house_list
+    rescue StandardError => ex
+      raise IhakulaServiceError, ex.message
+    end
   end
 
   def update_user_info(paras)

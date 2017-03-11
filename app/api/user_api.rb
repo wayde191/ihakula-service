@@ -23,6 +23,10 @@ module IHakula
         def user_store
           UserStoreFactory::create(settings)
         end
+
+        def unauthenticated!(message, headers = nil)
+          error! message, 401, headers
+        end
       end
 
       desc 'Operations on iHakula User'
@@ -30,6 +34,14 @@ module IHakula
         params do
         end
         route_param :house_id do
+          before do
+            token = headers['Authorization']
+            unauthenticated! 'Not Authenticated!' if token.nil?
+            token = token.sub! 'Bearer ', ''
+            token_record = user_store.check_token token
+            unauthenticated! 'Not Authenticated!' if token_record.nil?
+          end
+
           desc 'rent house'
           params do
             requires :invite_code, type: String, not_empty: true, desc: 'Rent house invite code'
