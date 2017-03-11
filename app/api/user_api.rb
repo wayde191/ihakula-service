@@ -27,16 +27,42 @@ module IHakula
 
       desc 'Operations on iHakula User'
       resource :user do
+        params do
+        end
+        route_param :house_id do
+          desc 'rent house'
+          params do
+            requires :invite_code, type: String, not_empty: true, desc: 'Rent house invite code'
+          end
+          post '/rent', http_codes: [[OK, OK_MESSAGE], [FAILURE, SERVER_ERROR]] do
+            user_store.rent(params)
+          end
 
-        desc 'Get token for wechat little program', is_array: false
+          desc 'get house detail info'
+          post '/detail', http_codes: [[OK, OK_MESSAGE], [FAILURE, SERVER_ERROR]] do
+            user_store.get_house_detail(:house_id)
+          end
+        end
+
+        desc 'Update user info'
+        params do
+          requires :phone, type: String, not_empty: true, desc: 'User phone'
+        end
+        put '/update-user-info', http_codes: [[OK, OK_MESSAGE], [FAILURE, SERVER_ERROR]] do
+          begin
+            user_store.update_user_info params
+            status UPDATED
+          rescue IhakulaServiceError => ex
+            status FAILURE
+            {error:SERVER_ERROR, message:ex.message}
+          end
+        end
+
+        desc 'Get token for wechat', is_array: false
         params do
           requires :all, except: [], using: Models::Wx_user.documentation
         end
-        post '/get-wx-token', http_codes: [
-            [OK, OK_MESSAGE],
-            [MALFORMED_REQUEST, MALFORMED_REQUEST_DESCRIPTION],
-            [FAILURE, SERVER_ERROR]
-        ] do
+        post '/get-wx-token', http_codes: [[OK, OK_MESSAGE], [FAILURE, SERVER_ERROR]] do
           begin
             user_store.get_wx_token params
           rescue IhakulaServiceError => ex
@@ -45,7 +71,17 @@ module IHakula
           end
         end
 
-
+        desc 'Get house list ', is_array: true
+        params do
+        end
+        post '/get-house-list', http_codes: [[OK, OK_MESSAGE], [FAILURE, SERVER_ERROR]] do
+          begin
+            user_store.get_wx_house
+          rescue IhakulaServiceError => ex
+            status FAILURE
+            {error:SERVER_ERROR, message:ex.message}
+          end
+        end
 
 
         desc 'Get all user contacts', is_array: true

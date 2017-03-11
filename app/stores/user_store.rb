@@ -56,6 +56,22 @@ class UserStore
 
   # ==========================================================
   # Wechat little program
+  def get_house_detail(house_id)
+    house_id
+  end
+
+  def rent(paras)
+    paras
+  end
+
+  def get_wx_house
+    []
+  end
+
+  def update_user_info(paras)
+    paras
+  end
+
   def get_wx_token(paras)
     begin
       wx_session = get_wx_key(paras[:code], paras[:app_id])
