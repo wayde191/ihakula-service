@@ -67,13 +67,15 @@ module IHakula
           end
         end
 
-        desc 'Update user info'
+        desc 'Fill user info'
         params do
           requires :phone, type: String, not_empty: true, desc: 'User phone'
         end
-        put '/update-user-info', http_codes: [[OK, OK_MESSAGE], [FAILURE, SERVER_ERROR]] do
+        put '/fill-user-info', http_codes: [[OK, OK_MESSAGE], [FAILURE, SERVER_ERROR]] do
           begin
-            user_store.update_user_info params
+            check_token
+            token_record = get_token_record
+            user_store.fill_user_info(:phone, token_record['user_id'])
             status UPDATED
           rescue IhakulaServiceError => ex
             status FAILURE
@@ -106,6 +108,7 @@ module IHakula
           end
         end
 
+        # ===================================================================
 
         desc 'Get all user contacts', is_array: true
         params do
@@ -128,11 +131,7 @@ module IHakula
         params do
           requires :all, except: [:id, :default, :date], using: Models::Contact.documentation
         end
-        post '/create-contact', http_codes: [
-                              [OK, OK_MESSAGE],
-                              [MALFORMED_REQUEST, MALFORMED_REQUEST_DESCRIPTION],
-                              [FAILURE, SERVER_ERROR]
-                          ] do
+        post '/create-contact', http_codes: [[OK, OK_MESSAGE], [MALFORMED_REQUEST, MALFORMED_REQUEST_DESCRIPTION], [FAILURE, SERVER_ERROR]] do
           begin
             user_store.create_contact(params)
           rescue IhakulaServiceError => ex
@@ -145,11 +144,7 @@ module IHakula
         params do
           requires :all, except: [:date], using: Models::Contact.documentation
         end
-        put '/update-contact', http_codes: [
-                                  [OK, OK_MESSAGE],
-                                  [MALFORMED_REQUEST, MALFORMED_REQUEST_DESCRIPTION],
-                                  [FAILURE, SERVER_ERROR]
-                              ] do
+        put '/update-contact', http_codes: [[OK, OK_MESSAGE], [MALFORMED_REQUEST, MALFORMED_REQUEST_DESCRIPTION], [FAILURE, SERVER_ERROR]] do
           begin
             user_store.update_contact(params)
             status UPDATED

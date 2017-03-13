@@ -129,8 +129,14 @@ class UserStore
     end
   end
 
-  def fill_user_info(paras)
-    paras
+  def fill_user_info(user_id, phone)
+    begin
+      user = Wx_user.find_by(id: user_id)
+      user[:phone] = phone
+      user.save
+    rescue StandardError => ex
+      raise IhakulaServiceError, ex.message
+    end
   end
 
   def get_wx_token(paras)
