@@ -32,14 +32,14 @@ module IHakula
           token = headers['Authorization']
           unauthenticated! 'Not Authenticated!' if token.nil?
           token = token.sub! 'Bearer ', ''
-          token_record = user_store.get_token token
+          token_record = user_store.get_token_record token
           unauthenticated! 'Not Authenticated!' if token_record.nil?
         end
 
         def get_token_record
           token = headers['Authorization']
           token = token.sub! 'Bearer ', ''
-          user_store.get_token token
+          user_store.get_token_record token
         end
       end
 
@@ -64,6 +64,21 @@ module IHakula
           desc 'get house detail info'
           post '/detail', http_codes: [[OK, OK_MESSAGE], [FAILURE, SERVER_ERROR]] do
             user_store.get_house_detail(:house_id)
+          end
+        end
+
+        desc 'Get user house asset'
+        params do
+        end
+        get '/get-user-asset', http_codes: [[OK, OK_MESSAGE], [FAILURE, SERVER_ERROR]] do
+          begin
+            check_token
+            token_record = get_token_record
+            user_store.get_user_asset token_record['user_id']
+            status UPDATED
+          rescue IhakulaServiceError => ex
+            status FAILURE
+            {error:SERVER_ERROR, message:ex.message}
           end
         end
 

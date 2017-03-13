@@ -55,7 +55,7 @@ class UserStore
     end
   end
 
-  def get_token(token)
+  def get_token_record(token)
     begin
       Wx_token.find_by(token: token)
     rescue StandardError => ex
@@ -65,6 +65,47 @@ class UserStore
 
   # ==========================================================
   # Wechat little program
+  def get_user_asset(user_id)
+    begin
+      user = Wx_user.find_by(id: user_id)
+      leaseholds = Ih_leasehold
+                       .where('end_time > ?', get_current_time)
+                       .where(guest_id: user_id)
+      my_house = (Ih_house.where(host_id: user_id) if user['role'].eql? WX_HOST) || []
+
+      contracts = []
+      leaseholds.each do |leasehold|
+        house = Ih_house.find_by(id: leasehold['house_id'])
+        garden = Ih_garden.find_by(id: house['garden_id'])
+        host = Wx_user.find_by(id: house['host_id'])
+
+        contracts << {
+            house: get_house_detail_info(house, garden, host),
+            payment: Ih_payment.find_by(leasehold_id: leasehold['id']),
+            startTime: leasehold['start_time'],
+            endTime: leasehold['end_time'],
+            deposit: leasehold['deposit'],
+            price: leasehold['price']
+        }
+      end
+
+      my_house_list = []
+      my_house.each do |house|
+        garden = Ih_garden.find_by(id: house['garden_id'])
+        host = Wx_user.find_by(id: house['host_id'])
+        my_house_list << get_house_detail_info(house, garden, host)
+      end
+
+      {
+          my_house: my_house_list,
+          contracts: contracts
+      }
+
+    rescue StandardError => ex
+      raise IhakulaServiceError, ex.message
+    end
+  end
+
   def get_house_detail(house_id)
     begin
       house = Ih_house.find_by(id: house_id)
@@ -155,6 +196,27 @@ class UserStore
   end
 
   private
+  def get_house_detail_info(house, garden, host)
+    {
+        name: house['name'],
+        layout: house['layout'],
+        orientation: house['orientation'],
+        area: house['area'],
+        floor: house['floor'],
+        avatar: house['avatar'],
+        waterCode: house['water_code'],
+        elecCoce: house['elec_code'],
+        gasCode: house['gas_code'],
+        facilities: get_facilities(house['facilities']),
+        garden: garden,
+        host: {
+            nickName: host['nickName'],
+            avatarUrl: host['avatarUrl'],
+            phone: host['phone']
+        }
+    }
+  end
+
   def get_facilities(facilities)
     facility_id_list = facilities.split ','
     facility_arr = []
