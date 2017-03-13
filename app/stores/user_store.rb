@@ -131,11 +131,11 @@ class UserStore
     end
   end
 
-  def rent(user_id, invite_code, house_id)
+  def rent_house(user_id, invite_code, house_id)
     begin
       house = Ih_house.find_by(id: house_id)
-      error! 'invite code error', INVITE_CODE_ERROR if house['invite_coe'] != invite_code
-      error! 'house not available', HOUSE_NOT_AVAILABLE if house['status'] != HOUSE_AVAILABLE
+      return {message: 'invite code error', error: INVITE_CODE_ERROR} if house['invite_code'] != invite_code
+      return {message: 'house not available', error: HOUSE_NOT_AVAILABLE} if house['status'] != HOUSE_AVAILABLE
 
       Ih_leasehold.create(
           house_id: house['id'],
@@ -147,7 +147,6 @@ class UserStore
 
       house[:status] = HOUSE_NOT_AVAILABLE
       house.save
-
     rescue StandardError => ex
       raise IhakulaServiceError, ex.message
     end
@@ -170,7 +169,7 @@ class UserStore
     end
   end
 
-  def fill_user_info(user_id, phone)
+  def fill_user_info(phone, user_id)
     begin
       user = Wx_user.find_by(id: user_id)
       user[:phone] = phone

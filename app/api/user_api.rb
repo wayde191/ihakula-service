@@ -32,14 +32,8 @@ module IHakula
           token = headers['Authorization']
           unauthenticated! 'Not Authenticated!' if token.nil?
           token = token.sub! 'Bearer ', ''
-          token_record = user_store.get_token_record token
-          unauthenticated! 'Not Authenticated!' if token_record.nil?
-        end
-
-        def get_token_record
-          token = headers['Authorization']
-          token = token.sub! 'Bearer ', ''
-          user_store.get_token_record token
+          @token_record = user_store.get_token_record token
+          unauthenticated! 'Not Authenticated!' if @token_record.nil?
         end
       end
 
@@ -57,25 +51,31 @@ module IHakula
             requires :invite_code, type: String, not_empty: true, desc: 'Rent house invite code'
           end
           post '/rent', http_codes: [[OK, OK_MESSAGE], [FAILURE, SERVER_ERROR]] do
-            token_record = get_token_record
-            user_store.rent(token_record['user_id'], :invite_code, :house_id)
+            begin
+              user_store.rent_house(@token_record['user_id'], params[:invite_code], params[:house_id])
+              status OK
+            rescue IhakulaServiceError => ex
+              status FAILURE
+              {error:SERVER_ERROR, message:ex.message}
+            end
           end
 
           desc 'get house detail info'
-          post '/detail', http_codes: [[OK, OK_MESSAGE], [FAILURE, SERVER_ERROR]] do
-            user_store.get_house_detail(:house_id)
+          get '/detail', http_codes: [[OK, OK_MESSAGE], [FAILURE, SERVER_ERROR]] do
+            begin
+              user_store.get_house_detail(params[:house_id])
+            rescue IhakulaServiceError => ex
+              status FAILURE
+              {error:SERVER_ERROR, message:ex.message}
+            end
           end
         end
 
         desc 'Get user house asset'
-        params do
-        end
         get '/get-user-asset', http_codes: [[OK, OK_MESSAGE], [FAILURE, SERVER_ERROR]] do
           begin
             check_token
-            token_record = get_token_record
-            user_store.get_user_asset token_record['user_id']
-            status UPDATED
+            user_store.get_user_asset @token_record['user_id']
           rescue IhakulaServiceError => ex
             status FAILURE
             {error:SERVER_ERROR, message:ex.message}
@@ -89,8 +89,7 @@ module IHakula
         put '/fill-user-info', http_codes: [[OK, OK_MESSAGE], [FAILURE, SERVER_ERROR]] do
           begin
             check_token
-            token_record = get_token_record
-            user_store.fill_user_info(:phone, token_record['user_id'])
+            user_store.fill_user_info(params[:phone], @token_record['user_id'])
             status UPDATED
           rescue IhakulaServiceError => ex
             status FAILURE
@@ -116,6 +115,7 @@ module IHakula
         end
         post '/get-house-list', http_codes: [[OK, OK_MESSAGE], [FAILURE, SERVER_ERROR]] do
           begin
+            check_token
             user_store.get_wx_house
           rescue IhakulaServiceError => ex
             status FAILURE
