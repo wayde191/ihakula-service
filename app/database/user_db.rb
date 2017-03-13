@@ -60,7 +60,3 @@ end
 class Ih_facility < WeChatDatabaseConnection
   self.table_name = 'ih_facility'
 end
-
-class Ih_facility_item < WeChatDatabaseConnection
-  self.table_name = 'ih_facility_item'
-end

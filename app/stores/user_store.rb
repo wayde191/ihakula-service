@@ -66,7 +66,28 @@ class UserStore
   # ==========================================================
   # Wechat little program
   def get_house_detail(house_id)
-    house_id
+    begin
+      house = Ih_house.find_by(id: house_id)
+      garden = Ih_garden.find_by(id: house['garden_id'])
+      host = Wx_user.find_by(id: house['host_id'])
+
+      {
+          name: house['name'],
+          layout: house['layout'],
+          orientation: house['orientation'],
+          area: house['area'],
+          floor: house['floor'],
+          avatar: house['avatar'],
+          facilities: get_facilities(house['facilities']),
+          garden: garden,
+          host: {
+              nickName: host['nickName'],
+              avatarUrl: host['avatarUrl']
+          }
+      }
+    rescue StandardError => ex
+      raise IhakulaServiceError, ex.message
+    end
   end
 
   def rent(token_record, invite_code, house_id)
@@ -108,7 +129,7 @@ class UserStore
     end
   end
 
-  def update_user_info(paras)
+  def fill_user_info(paras)
     paras
   end
 
@@ -128,6 +149,15 @@ class UserStore
   end
 
   private
+  def get_facilities(facilities)
+    facility_id_list = facilities.split ','
+    facility_arr = []
+    facility_id_list.each do |facility_id|
+      facility_arr << Ih_facility.find_by(id: facility_id)
+    end
+    facility_arr
+  end
+
   def get_token(session_key, open_id, user_id, app_id)
     token = Base64.strict_encode64("#{session_key}#{user_id}")
     Wx_token.create(
