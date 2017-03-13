@@ -55,7 +55,7 @@ class UserStore
     end
   end
 
-  def check_token(token)
+  def get_token(token)
     begin
       Wx_token.find_by(token: token)
     rescue StandardError => ex

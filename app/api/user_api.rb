@@ -27,6 +27,20 @@ module IHakula
         def unauthenticated!(message, headers = nil)
           error! message, 401, headers
         end
+
+        def check_token
+          token = headers['Authorization']
+          unauthenticated! 'Not Authenticated!' if token.nil?
+          token = token.sub! 'Bearer ', ''
+          token_record = user_store.get_token token
+          unauthenticated! 'Not Authenticated!' if token_record.nil?
+        end
+
+        def get_token_record
+          token = headers['Authorization']
+          token = token.sub! 'Bearer ', ''
+          user_store.get_token token
+        end
       end
 
       desc 'Operations on iHakula User'
@@ -35,11 +49,7 @@ module IHakula
         end
         route_param :house_id do
           before do
-            token = headers['Authorization']
-            unauthenticated! 'Not Authenticated!' if token.nil?
-            token = token.sub! 'Bearer ', ''
-            token_record = user_store.check_token token
-            unauthenticated! 'Not Authenticated!' if token_record.nil?
+            check_token
           end
 
           desc 'rent house'
@@ -47,10 +57,7 @@ module IHakula
             requires :invite_code, type: String, not_empty: true, desc: 'Rent house invite code'
           end
           post '/rent', http_codes: [[OK, OK_MESSAGE], [FAILURE, SERVER_ERROR]] do
-            token = headers['Authorization']
-            token = token.sub! 'Bearer ', ''
-            token_record = user_store.check_token token
-
+            token_record = get_token_record
             user_store.rent(token_record['user_id'], :invite_code, :house_id)
           end
 
