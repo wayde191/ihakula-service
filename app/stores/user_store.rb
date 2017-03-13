@@ -90,7 +90,7 @@ class UserStore
     end
   end
 
-  def rent(token_record, invite_code, house_id)
+  def rent(user_id, invite_code, house_id)
     begin
       house = Ih_house.find_by(id: house_id)
       error! 'invite code error', INVITE_CODE_ERROR if house['invite_coe'] != invite_code
@@ -99,7 +99,7 @@ class UserStore
       Ih_leasehold.create(
           house_id: house['id'],
           host_id: house['host_id'],
-          guest_id: token_record['user_id'],
+          guest_id: user_id,
           start_time: get_current_time,
           end_time: 365.days.from_now,
       )
