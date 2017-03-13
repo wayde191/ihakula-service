@@ -80,7 +80,7 @@ class UserStore
         host = Wx_user.find_by(id: house['host_id'])
 
         contracts << {
-            house: get_house_detail_info(house, garden, host),
+            house: get_house_detail_with_security_info(house, garden, host),
             payment: Ih_payment.find_by(leasehold_id: leasehold['id']),
             startTime: leasehold['start_time'],
             endTime: leasehold['end_time'],
@@ -93,7 +93,7 @@ class UserStore
       my_house.each do |house|
         garden = Ih_garden.find_by(id: house['garden_id'])
         host = Wx_user.find_by(id: house['host_id'])
-        my_house_list << get_house_detail_info(house, garden, host)
+        my_house_list << get_house_detail_with_security_info(house, garden, host)
       end
 
       {
@@ -196,7 +196,7 @@ class UserStore
   end
 
   private
-  def get_house_detail_info(house, garden, host)
+  def get_house_detail_with_security_info(house, garden, host)
     {
         name: house['name'],
         layout: house['layout'],
