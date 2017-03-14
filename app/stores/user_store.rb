@@ -232,8 +232,8 @@ class UserStore
          open_id: open_id,
          session_key: session_key,
          valid_time: 30.days.from_now,
-         wx_app_id: app_id,
-         wx_user_id: user_id
+         app_id: app_id,
+         user_id: user_id
     )
     token
   end
