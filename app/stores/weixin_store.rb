@@ -12,6 +12,16 @@ class WeixinStore
     @logger = LogWrapper.new(app_settings, LogFormatter.new)
   end
 
+  def get_bbs(params)
+    begin
+      @params = params
+      validate_request
+      JSON.parse(@http_client.get(build_request_url).body.to_json)
+    rescue StandardError => ex
+      raise IhakulaServiceError, ex.message
+    end
+  end
+
   def event_handler(params)
     begin
       @params = params
@@ -24,9 +34,18 @@ class WeixinStore
 
   private
 
+  def build_request_url
+    params_uri = parameterize(JSON.parse(@params[:params_string]))
+    "#{@params[:url]}?#{params_uri}"
+  end
+
+  def parameterize(params)
+    URI.escape(params.collect{|k,v| "#{k}=#{v}"}.join('&'))
+  end
+
   def validate_request
     unless request_come_from_ihakula
-      redirect 'http://www.ihakula.com'
+      redirect 'https://www.sunzhongmou.com'
     end
   end
 

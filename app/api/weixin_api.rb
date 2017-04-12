@@ -35,6 +35,30 @@ module IHakula
       end
 
       desc 'Operations on iHakula Joke'
+      resource :bbs do
+
+        desc 'Get bbs request', is_array: true
+        params do
+          requires :ihakula_request, type: String, not_empty: true, desc: 'iHakula key'
+          requires :params_string, type: String, not_empty: true, desc: 'request params'
+          requires :url, type: String, not_empty: true, desc: 'request url'
+        end
+        get '/event/get', http_codes: [
+            [OK, OK_MESSAGE],
+            [MALFORMED_REQUEST, MALFORMED_REQUEST_DESCRIPTION],
+            [FAILURE, SERVER_ERROR]
+        ] do
+          begin
+            weixin_store.get_bbs(params)
+          rescue IhakulaServiceError => ex
+            status FAILURE
+            {error:SERVER_ERROR, message:ex.message}
+          end
+        end
+
+
+      end
+
       resource :weixin do
 
         desc 'Get validated neighbours', is_array: true
