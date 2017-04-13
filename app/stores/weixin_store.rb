@@ -22,6 +22,16 @@ class WeixinStore
     end
   end
 
+  def post_bbs(params)
+    begin
+      @params = params
+      validate_request
+      JSON.parse(@http_client.post(@params[:url], JSON.parse(@params[:params_string])).body)
+    rescue StandardError => ex
+      raise IhakulaServiceError, ex.message
+    end
+  end
+
   def event_handler(params)
     begin
       @params = params

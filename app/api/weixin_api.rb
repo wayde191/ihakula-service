@@ -56,6 +56,25 @@ module IHakula
           end
         end
 
+        desc 'Post bbs request', is_array: false
+        params do
+          requires :ihakula_request, type: String, not_empty: true, desc: 'iHakula key'
+          requires :params_string, type: String, not_empty: true, desc: 'request params'
+          requires :url, type: String, not_empty: true, desc: 'request url'
+        end
+        post '/event/post', http_codes: [
+            [OK, OK_MESSAGE],
+            [MALFORMED_REQUEST, MALFORMED_REQUEST_DESCRIPTION],
+            [FAILURE, SERVER_ERROR]
+        ] do
+          begin
+            weixin_store.post_bbs(params)
+          rescue IhakulaServiceError => ex
+            status FAILURE
+            {error:SERVER_ERROR, message:ex.message}
+          end
+        end
+
 
       end
 
