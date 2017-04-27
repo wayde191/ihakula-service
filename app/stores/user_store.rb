@@ -255,6 +255,14 @@ class UserStore
           activity_time: get_current_time,
           role: 0
       )
+
+      @http_client.post("#{@settings.bbs_service}/user/create", {
+          loginname: user_info['nickName'],
+          password: 'sunzhongmou.com',
+          email: "#{user_info['nickName']}@qq.com",
+          avatarUrl: user_info['avatarUrl']
+      })
+
     else
       user[:nickName] = user_info['nickName']
       user[:gender] = user_info['gender']

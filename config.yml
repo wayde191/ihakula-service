@@ -1,4 +1,5 @@
 development:
   platform: ihakula
   no1_service: http://www.ihakula.com:9000/no1/index.php/wp-json/wp/v2/
+  bbs_service: https://bbs.sunzhongmou.com/api/v1
   log_path: /tmp/ihakula_service.log
