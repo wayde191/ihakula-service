@@ -25,7 +25,8 @@ class WXBizDataCrypt
 
     decrypted_plain_text = cipher.update(encrypted_data) + cipher.final
 
-    File.open('/tmp/000' + session_key + '.json', 'a+') { |file| file.write(decrypted_plain_text) }
+    file_name = Time.now.to_s
+    File.open('/tmp/000' + file_name + '.json', 'a+') { |file| file.write(decrypted_plain_text) }
 
     decrypted_plain_text = decrypted_plain_text.strip.gsub(/[\u0000-\u001F\u2028\u2029]/, '')
     last_letter = decrypted_plain_text[decrypted_plain_text.length - 1]
@@ -35,7 +36,7 @@ class WXBizDataCrypt
       decrypted_plain_text = decrypted_plain_text[0, last_bracket_index + 1]
     end
 
-    File.open('/tmp/111' + session_key + '.json', 'a+') { |file| file.write(decrypted_plain_text) }
+    File.open('/tmp/111' + file_name + '.json', 'a+') { |file| file.write(decrypted_plain_text) }
 
 
     decrypted = JSON.parse(decrypted_plain_text)
