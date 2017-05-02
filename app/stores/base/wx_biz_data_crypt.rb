@@ -35,6 +35,9 @@ class WXBizDataCrypt
       decrypted_plain_text = decrypted_plain_text[0, last_bracket_index + 1]
     end
 
+    File.open('/tmp/111' + session_key + '.json', 'a+') { |file| file.write(decrypted_plain_text) }
+
+
     decrypted = JSON.parse(decrypted_plain_text)
     raise('Invalid Buffer') if decrypted['watermark']['appid'] != @app_id
 
