@@ -25,9 +25,17 @@ class WXBizDataCrypt
 
     decrypted_plain_text = cipher.update(encrypted_data) + cipher.final
 
-    File.open('/tmp/' + iv + '.json', 'a+') { |file| file.write('=========\n' + decrypted_plain_text) }
+    File.open('/tmp/000' + session_key + '.json', 'a+') { |file| file.write(decrypted_plain_text) }
 
-    decrypted = JSON.parse(decrypted_plain_text.strip.gsub(/[\u0000-\u001F\u2028\u2029]/, ''))
+    decrypted_plain_text = decrypted_plain_text.strip.gsub(/[\u0000-\u001F\u2028\u2029]/, '')
+    last_letter = decrypted_plain_text[decrypted_plain_text.length - 1]
+    if last_letter != '}'
+      bracket_index = (0 ... decrypted_plain_text.length).find_all { |i| decrypted_plain_text[i,1] == '}' }
+      last_bracket_index = bracket_index[bracket_index.length - 1]
+      decrypted_plain_text = decrypted_plain_text[0, last_bracket_index + 1]
+    end
+
+    decrypted = JSON.parse(decrypted_plain_text)
     raise('Invalid Buffer') if decrypted['watermark']['appid'] != @app_id
 
     decrypted
