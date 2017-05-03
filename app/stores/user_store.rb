@@ -185,7 +185,10 @@ class UserStore
       return wx_session unless wx_session['errcode'].nil?
 
       decrypted_data = decrypt(paras[:app_id], wx_session['session_key'], paras[:iv], paras[:encrypted_data])
+      @logger.log_info('========')
+      @logger.log_info(decrypted_data)
       user_id = update_user_info decrypted_data
+      @logger.log_info('update_user_info done! ========')
       {
           token: get_token(wx_session['session_key'], wx_session['openid'], user_id, paras[:app_id])
       }
@@ -263,6 +266,8 @@ class UserStore
           avatarUrl: user_info['avatarUrl']
       })
 
+      @logger.log_info('create user --------')
+
     else
       user[:nickName] = user_info['nickName']
       user[:gender] = user_info['gender']
@@ -272,6 +277,9 @@ class UserStore
       user[:avatarUrl] = user_info['avatarUrl']
       user[:activity_time] = get_current_time
       user.save
+
+      @logger.log_info('update user --------')
+
     end
 
     user[:id]
