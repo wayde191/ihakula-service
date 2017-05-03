@@ -262,7 +262,7 @@ class UserStore
       @http_client.post("#{@settings.bbs_service}/user/create", {
           loginname: user_info['nickName'],
           password: 'sunzhongmou.com',
-          email: "#{user_info['nickName']}@qq.com",
+          email: "#{union_id}@qq.com",
           avatarUrl: user_info['avatarUrl']
       })
 
