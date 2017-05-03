@@ -26,9 +26,14 @@ class WXBizDataCrypt
     decrypted_plain_text = cipher.update(encrypted_data) + cipher.final
 
     file_name = Time.now.to_s
-    File.open('/tmp/000' + file_name + '.json', 'a+') { |file| file.write(decrypted_plain_text) }
+    File.open('/tmp/000' + file_name + '.json', 'w') { |file| file.write(decrypted_plain_text) }
 
-    decrypted_plain_text = decrypted_plain_text.strip.gsub(/[\u0000-\u001F\u2028\u2029]/, '')
+    # ruby 2.1.2p95 (2014-05-08 revision 45877) [x86_64-linux]
+    # not work!!
+    # decrypted_plain_text = decrypted_plain_text.strip.gsub(/[\u0000-\u001F\u2028\u2029]/, '')
+    # ruby 2.1.1p76 (2014-02-24 revision 45161) [x86_64-darwin12.0]
+    # works!!
+
     last_letter = decrypted_plain_text[decrypted_plain_text.length - 1]
     if last_letter != '}'
       bracket_index = (0 ... decrypted_plain_text.length).find_all { |i| decrypted_plain_text[i,1] == '}' }
@@ -36,7 +41,7 @@ class WXBizDataCrypt
       decrypted_plain_text = decrypted_plain_text[0, last_bracket_index + 1]
     end
 
-    File.open('/tmp/111' + file_name + '.json', 'a+') { |file| file.write(decrypted_plain_text) }
+    File.open('/tmp/111' + file_name + '.json', 'w') { |file| file.write(decrypted_plain_text) }
 
 
     decrypted = JSON.parse(decrypted_plain_text)
