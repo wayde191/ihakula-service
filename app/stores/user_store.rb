@@ -259,8 +259,9 @@ class UserStore
           role: 0
       )
 
+      day = get_current_time
       @http_client.post("#{@settings.bbs_service}/user/create", {
-          loginname: user_info['nickName'],
+          loginname: "#{user_info['nickName']}@#{day}",
           password: 'sunzhongmou.com',
           email: "#{union_id}@qq.com",
           avatarUrl: user_info['avatarUrl']
