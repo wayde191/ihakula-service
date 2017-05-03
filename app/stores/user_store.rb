@@ -259,9 +259,11 @@ class UserStore
           role: 0
       )
 
-      day = get_current_time
+      wx_lp = get_little_program user_info['watermark']['appid']
+      app_name = wx_lp[:app_name]
+
       @http_client.post("#{@settings.bbs_service}/user/create", {
-          loginname: "#{user_info['nickName']}@#{day}",
+          loginname: "#{user_info['nickName']}@#{app_name}",
           password: 'sunzhongmou.com',
           email: "#{union_id}@qq.com",
           avatarUrl: user_info['avatarUrl']
