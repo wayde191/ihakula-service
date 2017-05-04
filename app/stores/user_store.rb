@@ -259,15 +259,13 @@ class UserStore
           role: 0
       )
 
-      wx_lp = get_little_program user_info['watermark']['appid']
-      app_name = wx_lp[:app_name]
-
+      bbs_user = JSON.parse(@http_client.get("#{@settings.bbs_service}/user/#{user_info['nickName']}").body.to_json)
       @http_client.post("#{@settings.bbs_service}/user/create", {
-          loginname: "#{user_info['nickName']}@#{app_name}",
+          loginname: user_info['nickName'],
           password: 'sunzhongmou.com',
-          email: "#{user_info['nickName']}@#{app_name}@qq.com",
+          email: "#{user_info['nickName']}@qq.com",
           avatarUrl: user_info['avatarUrl']
-      })
+      }) if bbs_user['success'] == false
 
       @logger.log_info('create user --------')
 
